@@ -1,0 +1,606 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="readme.txt" />
+    <Text Include="build.bat" />
+    <Text Include="clean.bat" />
+    <Text Include="startup.S" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cache-v7.S" />
+    <None Include="delayloop.S" />
+    <None Include="exceptionstub.S" />
+    <None Include="libstub.S" />
+    <None Include="util_fast.S" />
+    <None Include="Makefile" />
+    <None Include="Rules.mk" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\bcmvendor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\bluetooth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\btdevicemanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\bthcilayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\btinquiryresults.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\btlogicallayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\btqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\btsubsystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\bttask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\bttransportlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bt\btuarttransport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\fat\fat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\fat\fatcache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\fat\fatdir.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\fat\fatfs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\fat\fatfsdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\fat\fatinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\fsdef.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\partition.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\fs\partitionmanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\input\keyboardbehaviour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\input\keymap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\input\mousebehaviour.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\input\touchscreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\arphandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\checksumcalculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\dhcpclient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\dnsclient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\httpdaemon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\icmphandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\in.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\ipaddress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\linklayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\netconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\netconnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\netdevlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\netqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\netsubsystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\nettask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\networklayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\ntpclient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\ntpdaemon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\retransmissionqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\retranstimeoutcalc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\routecache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\tcpconnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\tcprejector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\tftpdaemon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\transportlayer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\net\udpconnection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\sched\scheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\sched\synchronizationevent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\sched\task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\sched\taskswitch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhci.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhcidevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhciframeschednper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhciframeschednsplit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhciframeschedper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhciframescheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhciregister.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhcirootport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\dwhcixferstagedata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\macaddress.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\netdevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\smsc951x.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbbluetooth.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbconfigparser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbdevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbdevicefactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbendpoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbfunction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbgamepad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbhid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbhiddevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbhostcontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbhub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbkeyboard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbmassdevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbmouse.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbprinter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbrequest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\usb\usbstandardhub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\actled.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\alloc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\armv6mmu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bcm2835.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bcm2835int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bcm2836.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bcmframebuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bcmmailbox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bcmpropertytags.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\bcmrandom.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\chargenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\cputhrottle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\device.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\devicenameservice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\dmachannel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\exception.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\exceptionhandler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\exceptionstub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\gpioclock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\gpiomanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\gpiopin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\i2cmaster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\i2cslave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\interrupt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\koptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\machineinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\memio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\multicore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\nulldevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\pagetable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\ptrarray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\ptrlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\pwmoutput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\pwmsounddevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\serial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\spimaster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\spimasterdma.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\spinlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\startup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\stdarg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\synchronize.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\sysconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\timer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\tracer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="circle\virtualgpiopin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="actled.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="alloc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="assert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bcmframebuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bcmmailbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bcmpropertytags.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bcmrandom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chargenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cputhrottle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="device.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="devicenameservice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dmachannel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="exceptionhandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gpioclock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gpiomanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gpiopin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="i2cmaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="i2cslave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="interrupt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="koptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="libhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="machineinfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="memory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="multicore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="new.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nulldevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pagetable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ptrarray.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ptrlist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="purecall.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pwmoutput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pwmsounddevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="serial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spimaster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spimasterdma.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spinlock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="string.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="synchronize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sysinit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="time.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tracer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="virtualgpiopin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

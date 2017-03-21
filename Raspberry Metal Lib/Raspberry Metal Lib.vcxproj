@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{69a61ab8-2a9a-4a49-9872-0fd989d1a532}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+    <ProjectName>Raspberry Metal Lib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <NMakeBuildCommandLine>build.bat</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>clean.bat</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>
+    </NMakePreprocessorDefinitions>
+    <ExecutablePath />
+    <IncludePath />
+    <ReferencePath />
+    <LibraryPath />
+    <LibraryWPath />
+    <SourcePath />
+    <ExcludePath />
+    <NMakeIncludeSearchPath>C:\SysGCC\Raspberry\arm-linux-gnueabihf\include\c++\4.9;C:\SysGCC\Raspberry\arm-linux-gnueabihf\sysroot\usr\include;C:\SysGCC\Raspberry\arm-linux-gnueabihf\sysroot\usr\include\arm-linux-gnueabihf;C:\SysGCC\Raspberry\lib\gcc\arm-linux-gnueabihf\4.9\include;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <NMakeBuildCommandLine>build.bat</NMakeBuildCommandLine>
+    <NMakeCleanCommandLine>clean.bat</NMakeCleanCommandLine>
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="build.bat" />
+    <Text Include="clean.bat" />
+    <Text Include="startup.S" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cache-v7.S" />
+    <None Include="delayloop.S" />
+    <None Include="exceptionstub.S" />
+    <None Include="libstub.S" />
+    <None Include="Makefile" />
+    <None Include="Rules.mk" />
+    <None Include="util_fast.S" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="assert.h" />
+    <ClInclude Include="circle\actled.h" />
+    <ClInclude Include="circle\alloc.h" />
+    <ClInclude Include="circle\armv6mmu.h" />
+    <ClInclude Include="circle\bcm2835.h" />
+    <ClInclude Include="circle\bcm2835int.h" />
+    <ClInclude Include="circle\bcm2836.h" />
+    <ClInclude Include="circle\bcmframebuffer.h" />
+    <ClInclude Include="circle\bcmmailbox.h" />
+    <ClInclude Include="circle\bcmpropertytags.h" />
+    <ClInclude Include="circle\bcmrandom.h" />
+    <ClInclude Include="circle\bt\bcmvendor.h" />
+    <ClInclude Include="circle\bt\bluetooth.h" />
+    <ClInclude Include="circle\bt\btdevicemanager.h" />
+    <ClInclude Include="circle\bt\bthcilayer.h" />
+    <ClInclude Include="circle\bt\btinquiryresults.h" />
+    <ClInclude Include="circle\bt\btlogicallayer.h" />
+    <ClInclude Include="circle\bt\btqueue.h" />
+    <ClInclude Include="circle\bt\btsubsystem.h" />
+    <ClInclude Include="circle\bt\bttask.h" />
+    <ClInclude Include="circle\bt\bttransportlayer.h" />
+    <ClInclude Include="circle\bt\btuarttransport.h" />
+    <ClInclude Include="circle\chargenerator.h" />
+    <ClInclude Include="circle\cputhrottle.h" />
+    <ClInclude Include="circle\debug.h" />
+    <ClInclude Include="circle\device.h" />
+    <ClInclude Include="circle\devicenameservice.h" />
+    <ClInclude Include="circle\dmachannel.h" />
+    <ClInclude Include="circle\exception.h" />
+    <ClInclude Include="circle\exceptionhandler.h" />
+    <ClInclude Include="circle\exceptionstub.h" />
+    <ClInclude Include="circle\fs\fat\fat.h" />
+    <ClInclude Include="circle\fs\fat\fatcache.h" />
+    <ClInclude Include="circle\fs\fat\fatdir.h" />
+    <ClInclude Include="circle\fs\fat\fatfs.h" />
+    <ClInclude Include="circle\fs\fat\fatfsdef.h" />
+    <ClInclude Include="circle\fs\fat\fatinfo.h" />
+    <ClInclude Include="circle\fs\fsdef.h" />
+    <ClInclude Include="circle\fs\partition.h" />
+    <ClInclude Include="circle\fs\partitionmanager.h" />
+    <ClInclude Include="circle\gpioclock.h" />
+    <ClInclude Include="circle\gpiomanager.h" />
+    <ClInclude Include="circle\gpiopin.h" />
+    <ClInclude Include="circle\i2cmaster.h" />
+    <ClInclude Include="circle\i2cslave.h" />
+    <ClInclude Include="circle\input\keyboardbehaviour.h" />
+    <ClInclude Include="circle\input\keymap.h" />
+    <ClInclude Include="circle\input\mousebehaviour.h" />
+    <ClInclude Include="circle\input\touchscreen.h" />
+    <ClInclude Include="circle\interrupt.h" />
+    <ClInclude Include="circle\koptions.h" />
+    <ClInclude Include="circle\logger.h" />
+    <ClInclude Include="circle\machineinfo.h" />
+    <ClInclude Include="circle\macros.h" />
+    <ClInclude Include="circle\memio.h" />
+    <ClInclude Include="circle\memory.h" />
+    <ClInclude Include="circle\multicore.h" />
+    <ClInclude Include="circle\net\arphandler.h" />
+    <ClInclude Include="circle\net\checksumcalculator.h" />
+    <ClInclude Include="circle\net\dhcpclient.h" />
+    <ClInclude Include="circle\net\dnsclient.h" />
+    <ClInclude Include="circle\net\httpdaemon.h" />
+    <ClInclude Include="circle\net\icmphandler.h" />
+    <ClInclude Include="circle\net\in.h" />
+    <ClInclude Include="circle\net\ipaddress.h" />
+    <ClInclude Include="circle\net\linklayer.h" />
+    <ClInclude Include="circle\net\netconfig.h" />
+    <ClInclude Include="circle\net\netconnection.h" />
+    <ClInclude Include="circle\net\netdevlayer.h" />
+    <ClInclude Include="circle\net\netqueue.h" />
+    <ClInclude Include="circle\net\netsubsystem.h" />
+    <ClInclude Include="circle\net\nettask.h" />
+    <ClInclude Include="circle\net\networklayer.h" />
+    <ClInclude Include="circle\net\ntpclient.h" />
+    <ClInclude Include="circle\net\ntpdaemon.h" />
+    <ClInclude Include="circle\net\retransmissionqueue.h" />
+    <ClInclude Include="circle\net\retranstimeoutcalc.h" />
+    <ClInclude Include="circle\net\routecache.h" />
+    <ClInclude Include="circle\net\socket.h" />
+    <ClInclude Include="circle\net\tcpconnection.h" />
+    <ClInclude Include="circle\net\tcprejector.h" />
+    <ClInclude Include="circle\net\tftpdaemon.h" />
+    <ClInclude Include="circle\net\transportlayer.h" />
+    <ClInclude Include="circle\net\udpconnection.h" />
+    <ClInclude Include="circle\nulldevice.h" />
+    <ClInclude Include="circle\pagetable.h" />
+    <ClInclude Include="circle\ptrarray.h" />
+    <ClInclude Include="circle\ptrlist.h" />
+    <ClInclude Include="circle\pwmoutput.h" />
+    <ClInclude Include="circle\pwmsounddevice.h" />
+    <ClInclude Include="circle\sched\scheduler.h" />
+    <ClInclude Include="circle\sched\synchronizationevent.h" />
+    <ClInclude Include="circle\sched\task.h" />
+    <ClInclude Include="circle\sched\taskswitch.h" />
+    <ClInclude Include="circle\screen.h" />
+    <ClInclude Include="circle\serial.h" />
+    <ClInclude Include="circle\spimaster.h" />
+    <ClInclude Include="circle\spimasterdma.h" />
+    <ClInclude Include="circle\spinlock.h" />
+    <ClInclude Include="circle\startup.h" />
+    <ClInclude Include="circle\stdarg.h" />
+    <ClInclude Include="circle\string.h" />
+    <ClInclude Include="circle\synchronize.h" />
+    <ClInclude Include="circle\sysconfig.h" />
+    <ClInclude Include="circle\time.h" />
+    <ClInclude Include="circle\timer.h" />
+    <ClInclude Include="circle\tracer.h" />
+    <ClInclude Include="circle\types.h" />
+    <ClInclude Include="circle\usb\dwhci.h" />
+    <ClInclude Include="circle\usb\dwhcidevice.h" />
+    <ClInclude Include="circle\usb\dwhciframeschednper.h" />
+    <ClInclude Include="circle\usb\dwhciframeschednsplit.h" />
+    <ClInclude Include="circle\usb\dwhciframeschedper.h" />
+    <ClInclude Include="circle\usb\dwhciframescheduler.h" />
+    <ClInclude Include="circle\usb\dwhciregister.h" />
+    <ClInclude Include="circle\usb\dwhcirootport.h" />
+    <ClInclude Include="circle\usb\dwhcixferstagedata.h" />
+    <ClInclude Include="circle\usb\macaddress.h" />
+    <ClInclude Include="circle\usb\netdevice.h" />
+    <ClInclude Include="circle\usb\smsc951x.h" />
+    <ClInclude Include="circle\usb\usb.h" />
+    <ClInclude Include="circle\usb\usbbluetooth.h" />
+    <ClInclude Include="circle\usb\usbconfigparser.h" />
+    <ClInclude Include="circle\usb\usbdevice.h" />
+    <ClInclude Include="circle\usb\usbdevicefactory.h" />
+    <ClInclude Include="circle\usb\usbendpoint.h" />
+    <ClInclude Include="circle\usb\usbfunction.h" />
+    <ClInclude Include="circle\usb\usbgamepad.h" />
+    <ClInclude Include="circle\usb\usbhid.h" />
+    <ClInclude Include="circle\usb\usbhiddevice.h" />
+    <ClInclude Include="circle\usb\usbhostcontroller.h" />
+    <ClInclude Include="circle\usb\usbhub.h" />
+    <ClInclude Include="circle\usb\usbkeyboard.h" />
+    <ClInclude Include="circle\usb\usbmassdevice.h" />
+    <ClInclude Include="circle\usb\usbmouse.h" />
+    <ClInclude Include="circle\usb\usbprinter.h" />
+    <ClInclude Include="circle\usb\usbrequest.h" />
+    <ClInclude Include="circle\usb\usbstandardhub.h" />
+    <ClInclude Include="circle\util.h" />
+    <ClInclude Include="circle\version.h" />
+    <ClInclude Include="circle\virtualgpiopin.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="stdint.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="actled.cpp" />
+    <ClCompile Include="alloc.cpp" />
+    <ClCompile Include="assert.cpp" />
+    <ClCompile Include="bcmframebuffer.cpp" />
+    <ClCompile Include="bcmmailbox.cpp" />
+    <ClCompile Include="bcmpropertytags.cpp" />
+    <ClCompile Include="bcmrandom.cpp" />
+    <ClCompile Include="chargenerator.cpp" />
+    <ClCompile Include="cputhrottle.cpp" />
+    <ClCompile Include="debug.cpp" />
+    <ClCompile Include="device.cpp" />
+    <ClCompile Include="devicenameservice.cpp" />
+    <ClCompile Include="dmachannel.cpp" />
+    <ClCompile Include="exceptionhandler.cpp" />
+    <ClCompile Include="gpioclock.cpp" />
+    <ClCompile Include="gpiomanager.cpp" />
+    <ClCompile Include="gpiopin.cpp" />
+    <ClCompile Include="i2cmaster.cpp" />
+    <ClCompile Include="i2cslave.cpp" />
+    <ClCompile Include="interrupt.cpp" />
+    <ClCompile Include="koptions.cpp" />
+    <ClCompile Include="libhelper.cpp" />
+    <ClCompile Include="logger.cpp" />
+    <ClCompile Include="machineinfo.cpp" />
+    <ClCompile Include="memory.cpp" />
+    <ClCompile Include="multicore.cpp" />
+    <ClCompile Include="new.cpp" />
+    <ClCompile Include="nulldevice.cpp" />
+    <ClCompile Include="pagetable.cpp" />
+    <ClCompile Include="ptrarray.cpp" />
+    <ClCompile Include="ptrlist.cpp" />
+    <ClCompile Include="purecall.cpp" />
+    <ClCompile Include="pwmoutput.cpp" />
+    <ClCompile Include="pwmsounddevice.cpp" />
+    <ClCompile Include="screen.cpp" />
+    <ClCompile Include="serial.cpp" />
+    <ClCompile Include="spimaster.cpp" />
+    <ClCompile Include="spimasterdma.cpp" />
+    <ClCompile Include="spinlock.cpp" />
+    <ClCompile Include="string.cpp" />
+    <ClCompile Include="synchronize.cpp" />
+    <ClCompile Include="sysinit.cpp" />
+    <ClCompile Include="time.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="tracer.cpp" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="virtualgpiopin.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

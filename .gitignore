@@ -1,0 +1,4 @@
+/Raspberry Metal Lib/*.o
+/Raspberry Metal Lib/*.a
+/.vs/Project1/v14/*.suo
+/Raspberry Metal Lib/Debug/*.log
