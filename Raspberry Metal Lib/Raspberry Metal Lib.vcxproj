@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cache-v7.S" />
+    <None Include="circle.ld" />
     <None Include="delayloop.S" />
     <None Include="exceptionstub.S" />
     <None Include="libstub.S" />

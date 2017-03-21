@@ -592,6 +592,7 @@
     <None Include="util_fast.S">
       <Filter>ASM</Filter>
     </None>
+    <None Include="circle.ld" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="build.bat" />
