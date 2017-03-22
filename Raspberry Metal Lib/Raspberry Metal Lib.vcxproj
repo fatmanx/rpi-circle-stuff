@@ -194,6 +194,7 @@
     <ClInclude Include="circle\sched\task.h" />
     <ClInclude Include="circle\sched\taskswitch.h" />
     <ClInclude Include="circle\screen.h" />
+    <ClInclude Include="circle\ScreenDeviceExt.h" />
     <ClInclude Include="circle\serial.h" />
     <ClInclude Include="circle\spimaster.h" />
     <ClInclude Include="circle\spimasterdma.h" />
@@ -279,6 +280,7 @@
     <ClCompile Include="pwmoutput.cpp" />
     <ClCompile Include="pwmsounddevice.cpp" />
     <ClCompile Include="screen.cpp" />
+    <ClCompile Include="ScreenDeviceExt.cpp" />
     <ClCompile Include="serial.cpp" />
     <ClCompile Include="spimaster.cpp" />
     <ClCompile Include="spimasterdma.cpp" />

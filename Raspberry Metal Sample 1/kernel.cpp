@@ -54,7 +54,7 @@ TShutdownMode CKernel::Run (void)
 		unsigned nPosY = nPosX * m_Screen.GetHeight () / m_Screen.GetWidth ();
 
 		m_Screen.SetPixel (nPosX, nPosY, NORMAL_COLOR);
-		m_Screen.SetPixel (m_Screen.GetWidth ()-nPosX-1, nPosY, NORMAL_COLOR);
+		m_Screen.SetPixel (m_Screen.GetWidth ()-nPosX-1, nPosY, HIGH_COLOR);
 	}
 
 	// check the blink frequency without and with MMU (see option in constructor above)

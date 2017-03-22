@@ -24,7 +24,8 @@
 #include <circle/actled.h>
 #include <circle/koptions.h>
 #include <circle/devicenameservice.h>
-#include <circle/screen.h>
+//#include <circle/screen.h>
+#include <circle/ScreenDeviceExt.h>
 #include <circle/types.h>
 
 
@@ -51,7 +52,7 @@ private:
 	CActLED			m_ActLED;
 	CKernelOptions		m_Options;
 	CDeviceNameService	m_DeviceNameService;
-	CScreenDevice		m_Screen;
+	CScreenDeviceExt		m_Screen;
 	
 };
 
