@@ -58,6 +58,7 @@
 	#define NORMAL_COLOR			COLOR16 (31, 31, 31)
 	#define HIGH_COLOR			COLOR16 (31, 0, 0)
 	#define HALF_COLOR			COLOR16 (0, 0, 31)
+	#define NO_COLOR			COLOR16 (0, 0, 0)
 #elif DEPTH == 32
 	typedef u32 TScreenColor;
 
@@ -111,6 +112,8 @@ public:
 
 	void Rotor (unsigned nIndex,		// 0..3
 		    unsigned nCount);		// 0..3
+
+	void Clear(void);
 
 private:
 	void Write (char chChar);

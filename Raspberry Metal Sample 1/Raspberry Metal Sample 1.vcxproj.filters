@@ -25,9 +25,18 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cordic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="kernel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cordic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="isine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

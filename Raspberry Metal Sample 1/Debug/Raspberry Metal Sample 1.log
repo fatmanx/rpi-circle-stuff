@@ -1,1 +1,12 @@
-﻿  del /f/q *.o *.a *.elf *.lst *.img *.cir *.map *~ 
+﻿  arm-linux-gnueabihf-g++ -march=armv6j -mtune=arm1176jzf-s -mfloat-abi=hard  -Wall -Wno-psabi -fsigned-char -fno-builtin -nostdinc -nostdlib -D__circle__ -DRASPPI=1 -I ../Raspberry\ Metal\ Lib -I ../Raspberry\ Metal\ Lib/addon -I ../Raspberry\ Metal\ Lib/app/lib -O2 -g  -fno-exceptions -fno-rtti -std=c++0x -c -o kernel.o kernel.cpp
+  kernel.cpp: In member function 'TShutdownMode CKernel::Run()':
+  kernel.cpp:117:18: warning: 'x' is used uninitialized in this function [-Wuninitialized]
+    memcpy(x, z, 12);
+                    ^
+  kernel.cpp:117:18: warning: 'z' is used uninitialized in this function [-Wuninitialized]
+  arm-linux-gnueabihf-ld -o kernel.elf -Map kernel.map -T ../Raspberry\ Metal\ Lib/circle.ld ../Raspberry\ Metal\ Lib/startup.o main.o kernel.o ../Raspberry\ Metal\ Lib/libcircle.a
+  arm-linux-gnueabihf-objdump -d kernel.elf | arm-linux-gnueabihf-c++filt > kernel.lst
+  arm-linux-gnueabihf-objcopy kernel.elf -O binary kernel.img
+  wc -c kernel.img
+  43264 kernel.img
+          1 file(s) copied.

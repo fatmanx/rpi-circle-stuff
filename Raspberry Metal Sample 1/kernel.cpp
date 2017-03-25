@@ -19,54 +19,166 @@
 //
 #include "kernel.h"
 
-CKernel::CKernel (void)
-:	m_Memory (FALSE),	// set this to TRUE to enable MMU and to boost performance
-	m_Screen (m_Options.GetWidth (), m_Options.GetHeight ())
+#include "isine.h"
+
+#include <circle/string.h>
+#include <circle/util.h>
+
+
+CKernel::CKernel(void)
+	: m_Memory(true),	// set this to TRUE to enable MMU and to boost performance
+	m_Screen(m_Options.GetWidth(), m_Options.GetHeight())
+	//m_Screen(320,200)
 {
 }
 
-CKernel::~CKernel (void)
+CKernel::~CKernel(void)
 {
 }
 
-boolean CKernel::Initialize (void)
+boolean CKernel::Initialize(void)
 {
-	return m_Screen.Initialize ();
+	return m_Screen.Initialize();
 }
 
-TShutdownMode CKernel::Run (void)
+void CKernel::writeln(CString text) {
+	m_Screen.Write((const char *)text, text.GetLength());
+	m_Screen.Write("\n", 1);
+}
+
+
+
+int fact(int num)
 {
-	// draw rectangle on screen
-	for (unsigned nPosX = 0; nPosX < m_Screen.GetWidth (); nPosX++)
-	{
-		m_Screen.SetPixel (nPosX, 0, NORMAL_COLOR);
-		m_Screen.SetPixel (nPosX, m_Screen.GetHeight ()-1, HIGH_COLOR);
+	if (num == 0)
+		return 1;
+	else
+		return (fact(num - 1))*num;
+}
+
+float pow(float x, int p) {
+	float ret = 1;
+	while (p-- > 0) {
+		ret *= x;
 	}
-	for (unsigned nPosY = 0; nPosY < m_Screen.GetHeight (); nPosY++)
+	return ret;
+}
+
+float sine(float x) {
+	int neg = 1;
+	float sin = x;
+	for (int i = 1; i <= 5; i++)
 	{
-		m_Screen.SetPixel (0, nPosY, NORMAL_COLOR);
-		m_Screen.SetPixel (m_Screen.GetWidth ()-1, nPosY, HIGH_COLOR);
+		neg *= -1;
+		sin = sin + ((pow(x, i) / fact(i))*neg);
+	}
+	return sin;
+}
+
+
+TShutdownMode CKernel::Run(void)
+{
+	////// draw rectangle on screen
+	//for (unsigned nPosX = 0; nPosX < m_Screen.GetWidth(); nPosX++)
+	//{
+	//	m_Screen.SetPixel(nPosX, 0, NORMAL_COLOR);
+	//	m_Screen.SetPixel(nPosX, m_Screen.GetHeight() - 1, HIGH_COLOR);
+	//}
+	//for (unsigned nPosY = 0; nPosY < m_Screen.GetHeight(); nPosY++)
+	//{
+	//	m_Screen.SetPixel(0, nPosY, NORMAL_COLOR);
+	//	m_Screen.SetPixel(m_Screen.GetWidth() - 1, nPosY, HIGH_COLOR);
+	//}
+
+	//// draw cross on screen
+	//for (unsigned nPosX = 0; nPosX < m_Screen.GetWidth(); nPosX++)
+	//{
+	//	unsigned nPosY = nPosX * m_Screen.GetHeight() / m_Screen.GetWidth();
+
+	//	m_Screen.SetPixel(nPosX, nPosY, NORMAL_COLOR);
+	//	m_Screen.SetPixel(m_Screen.GetWidth() - nPosX - 1, nPosY, HIGH_COLOR);
+	//}
+
+	CString Message;
+	////Message.Format("%02X: \'%c\' ", (unsigned)chChar, chChar);
+	Message.Format("XXX %f", 0.1);
+	writeln(Message);
+	Message.Format("XXX %f", isine(1));
+	writeln(Message);
+	//Message.Format("ZZZZZZ");
+	//writeln(Message);
+	//Message.Format("2 %f %f %f %f %f", sqrt3(2), sqrt3(3), sqrt3(4), sqrt3(5), sqrt3(6));
+	//writeln(Message);
+	//Message.Format("2 %f %f %f %f %f", sqrt3(7), sqrt3(8), sqrt3(9), sqrt3(10), sqrt3(11));
+	//writeln(Message);
+	void *x;
+	void *z;
+
+	memcpy(x, z, 12);
+	
+
+	//Message.Format("pow %f %f %f %f %f", pow(2, 2), pow(2, 3), pow(2, 4), pow(2, 5), pow(2, 6));
+	//writeln(Message);
+
+	Message.Format("XXX %f %f", 0, isine(0));
+	writeln(Message);
+	Message.Format("pi/2 %f %f", PI / 2, isine(PI / 2));
+	writeln(Message);
+	Message.Format("pi/3 %f %f", PI / 3, isine(PI / 3));
+	writeln(Message);
+	Message.Format("pi/4 %f %f", PI / 4, isine(PI / 4));
+	writeln(Message);
+	Message.Format("pi/5 %f %f", PI / 5, isine(PI / 5));
+	writeln(Message);
+	Message.Format("pi/6 %f %f", PI / 6, isine(PI / 6));
+	writeln(Message);
+
+
+	
+
+
+	for (int i = 0; i < 600; i++) {
+		m_Screen.SetPixel(i, 100, NORMAL_COLOR);
+	}
+	
+
+	double u = -PI;
+	double dd = 0;
+	while (1)
+	{
+		//m_Screen.Clear();
+		
+		while (u < PI_X2) {
+			u += 0.01f;
+
+			m_Screen.SetPixel(u * 100, 100 + (int)(50 * u), NORMAL_COLOR);
+		}
+
+		u = -PI;
+		while (u < 2 * PI_X2) {
+			u += 0.01;
+
+			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * isine(u + dd - 0.01)), BLACK_COLOR);
+			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * icosine(u + 2*dd - 0.01)), BLACK_COLOR);
+			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * isine(u+dd)), HIGH_COLOR);
+			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * icosine(u+2*dd)), HALF_COLOR);
+		}
+		
+		dd += 0.01;
+		
 	}
 
-	// draw cross on screen
-	for (unsigned nPosX = 0; nPosX < m_Screen.GetWidth (); nPosX++)
-	{
-		unsigned nPosY = nPosX * m_Screen.GetHeight () / m_Screen.GetWidth ();
-
-		m_Screen.SetPixel (nPosX, nPosY, NORMAL_COLOR);
-		m_Screen.SetPixel (m_Screen.GetWidth ()-nPosX-1, nPosY, HIGH_COLOR);
-	}
 
 	// check the blink frequency without and with MMU (see option in constructor above)
 	while (1)
 	{
-		m_ActLED.On ();
+		m_ActLED.On();
 		for (volatile unsigned i = 1; i <= 5000000; i++)
 		{
 			// just wait
 		}
 
-		m_ActLED.Off ();
+		m_ActLED.Off();
 		for (volatile unsigned i = 1; i <= 10000000; i++)
 		{
 			// just wait

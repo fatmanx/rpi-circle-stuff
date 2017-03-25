@@ -20,6 +20,7 @@
 #ifndef _kernel_h
 #define _kernel_h
 
+
 #include <circle/memory.h>
 #include <circle/actled.h>
 #include <circle/koptions.h>
@@ -27,7 +28,7 @@
 //#include <circle/screen.h>
 #include <circle/ScreenDeviceExt.h>
 #include <circle/types.h>
-
+#include <circle/string.h>
 
 enum TShutdownMode
 {
@@ -39,12 +40,13 @@ enum TShutdownMode
 class CKernel
 {
 public:
-	CKernel (void);
-	~CKernel (void);
+	CKernel(void);
+	~CKernel(void);
 
-	boolean Initialize (void);
+	boolean Initialize(void);
 
-	TShutdownMode Run (void);
+	TShutdownMode Run(void);
+	void writeln(CString text);
 
 private:
 	// do not change this order
@@ -53,7 +55,10 @@ private:
 	CKernelOptions		m_Options;
 	CDeviceNameService	m_DeviceNameService;
 	CScreenDeviceExt		m_Screen;
-	
+
+
+
+
 };
 
 #endif

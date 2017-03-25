@@ -87,10 +87,13 @@
     <Text Include="clean.bat" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cordic.cpp" />
     <ClCompile Include="kernel.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cordic.h" />
+    <ClInclude Include="isine.h" />
     <ClInclude Include="kernel.h" />
   </ItemGroup>
   <ItemGroup>

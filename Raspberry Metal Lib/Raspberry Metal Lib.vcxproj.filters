@@ -142,7 +142,9 @@
     <ClCompile Include="cputhrottle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenDeviceExt.cpp" />
+    <ClCompile Include="ScreenDeviceExt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="circle\actled.h">
@@ -574,7 +576,9 @@
     <ClInclude Include="circle\gpioclock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="circle\ScreenDeviceExt.h" />
+    <ClInclude Include="circle\ScreenDeviceExt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Makefile" />

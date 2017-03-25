@@ -1,1 +1,1 @@
-﻿  del /f/q *.o *.a *.elf *.lst *.img *.cir *.map *~ 
+﻿  make: Nothing to be done for `all'.

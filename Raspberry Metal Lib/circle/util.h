@@ -51,6 +51,13 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase);
 
 int char2int (char chValue);			// with sign extension
 
+int sign(int x);
+
+int abs(int x);
+
+
+float sqrt3(const float x);
+
 #ifdef __GNUC__
 
 #define bswap16		__builtin_bswap16
@@ -68,6 +75,8 @@ u32 bswap32 (u32 ulValue);
 
 #define be2le16		bswap16
 #define be2le32		bswap32
+
+
 
 #ifdef __cplusplus
 }

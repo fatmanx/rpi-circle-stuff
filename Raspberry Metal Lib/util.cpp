@@ -19,23 +19,23 @@
 //
 #include <circle/util.h>
 
-void *memset (void *pBuffer, int nValue, size_t nLength)
+void *memset(void *pBuffer, int nValue, size_t nLength)
 {
-	char *p = (char *) pBuffer;
+	char *p = (char *)pBuffer;
 
 	while (nLength--)
 	{
-		*p++ = (char) nValue;
+		*p++ = (char)nValue;
 	}
 
 	return pBuffer;
 }
 
-int memcmp (const void *pBuffer1, const void *pBuffer2, size_t nLength)
+int memcmp(const void *pBuffer1, const void *pBuffer2, size_t nLength)
 {
-	const unsigned char *p1 = (const unsigned char *) pBuffer1;
-	const unsigned char *p2 = (const unsigned char *) pBuffer2;
-	
+	const unsigned char *p1 = (const unsigned char *)pBuffer1;
+	const unsigned char *p2 = (const unsigned char *)pBuffer2;
+
 	while (nLength-- > 0)
 	{
 		if (*p1 > *p2)
@@ -54,7 +54,7 @@ int memcmp (const void *pBuffer1, const void *pBuffer2, size_t nLength)
 	return 0;
 }
 
-size_t strlen (const char *pString)
+size_t strlen(const char *pString)
 {
 	size_t nResult = 0;
 
@@ -66,10 +66,10 @@ size_t strlen (const char *pString)
 	return nResult;
 }
 
-int strcmp (const char *pString1, const char *pString2)
+int strcmp(const char *pString1, const char *pString2)
 {
-	while (   *pString1 != '\0'
-	       && *pString2 != '\0')
+	while (*pString1 != '\0'
+		&& *pString2 != '\0')
 	{
 		if (*pString1 > *pString2)
 		{
@@ -96,7 +96,7 @@ int strcmp (const char *pString1, const char *pString2)
 	return 0;
 }
 
-char *strcpy (char *pDest, const char *pSrc)
+char *strcpy(char *pDest, const char *pSrc)
 {
 	char *p = pDest;
 
@@ -110,7 +110,7 @@ char *strcpy (char *pDest, const char *pSrc)
 	return pDest;
 }
 
-char *strncpy (char *pDest, const char *pSrc, size_t nMaxLen)
+char *strncpy(char *pDest, const char *pSrc, size_t nMaxLen)
 {
 	char *pResult = pDest;
 
@@ -133,7 +133,7 @@ char *strncpy (char *pDest, const char *pSrc, size_t nMaxLen)
 	return pResult;
 }
 
-char *strcat (char *pDest, const char *pSrc)
+char *strcat(char *pDest, const char *pSrc)
 {
 	char *p = pDest;
 
@@ -152,13 +152,13 @@ char *strcat (char *pDest, const char *pSrc)
 	return pDest;
 }
 
-char *strchr (const char *pString, int chChar)
+char *strchr(const char *pString, int chChar)
 {
 	while (*pString)
 	{
 		if (*pString == chChar)
 		{
-			return (char *) pString;
+			return (char *)pString;
 		}
 
 		pString++;
@@ -167,7 +167,7 @@ char *strchr (const char *pString, int chChar)
 	return 0;
 }
 
-char *strtok_r (char *pString, const char *pDelim, char **ppSavePtr)
+char *strtok_r(char *pString, const char *pDelim, char **ppSavePtr)
 {
 	char *pToken;
 
@@ -188,7 +188,7 @@ char *strtok_r (char *pString, const char *pDelim, char **ppSavePtr)
 		return 0;
 	}
 
-	while (strchr (pDelim, *pString) != 0)
+	while (strchr(pDelim, *pString) != 0)
 	{
 		pString++;
 	}
@@ -202,8 +202,8 @@ char *strtok_r (char *pString, const char *pDelim, char **ppSavePtr)
 
 	pToken = pString;
 
-	while (   *pString != '\0'
-	       && strchr (pDelim, *pString) == 0)
+	while (*pString != '\0'
+		&& strchr(pDelim, *pString) == 0)
 	{
 		pString++;
 	}
@@ -218,7 +218,7 @@ char *strtok_r (char *pString, const char *pDelim, char **ppSavePtr)
 	return pToken;
 }
 
-unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
+unsigned long strtoul(const char *pString, char **ppEndPtr, int nBase)
 {
 	unsigned long ulResult = 0;
 	unsigned long ulPrevResult;
@@ -227,12 +227,12 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
 
 	if (ppEndPtr != 0)
 	{
-		*ppEndPtr = (char *) pString;
+		*ppEndPtr = (char *)pString;
 	}
 
-	if (   nBase != 0
-	    && (   nBase < 2
-	        || nBase > 36))
+	if (nBase != 0
+		&& (nBase < 2
+			|| nBase > 36))
 	{
 		return ulResult;
 	}
@@ -243,8 +243,8 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
 		pString++;
 	}
 
-	if (   *pString == '+'
-	    || *pString == '-')
+	if (*pString == '+'
+		|| *pString == '-')
 	{
 		if (*pString++ == '-')
 		{
@@ -256,11 +256,11 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
 	{
 		pString++;
 
-		if (   *pString == 'x'
-		    || *pString == 'X')
+		if (*pString == 'x'
+			|| *pString == 'X')
 		{
-			if (   nBase != 0
-			    && nBase != 16)
+			if (nBase != 0
+				&& nBase != 16)
 			{
 				return ulResult;
 			}
@@ -273,7 +273,7 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
 		{
 			if (nBase == 0)
 			{
-				nBase =  8;
+				nBase = 8;
 			}
 		}
 	}
@@ -318,11 +318,11 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
 
 		if (ulResult < ulPrevResult)
 		{
-			ulResult = (unsigned long) -1;
+			ulResult = (unsigned long)-1;
 
 			if (ppEndPtr != 0)
 			{
-				*ppEndPtr = (char *) pString;
+				*ppEndPtr = (char *)pString;
 			}
 
 			return ulResult;
@@ -330,11 +330,11 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
 
 		pString++;
 		bFirst = 0;
-	}	
+	}
 
 	if (ppEndPtr != 0)
 	{
-		*ppEndPtr = (char *) pString;
+		*ppEndPtr = (char *)pString;
 	}
 
 	if (bFirst)
@@ -350,7 +350,7 @@ unsigned long strtoul (const char *pString, char **ppEndPtr, int nBase)
 	return ulResult;
 }
 
-int char2int (char chValue)
+int char2int(char chValue)
 {
 	int nResult = chValue;
 
@@ -362,20 +362,53 @@ int char2int (char chValue)
 	return nResult;
 }
 
+
+
+int sign(int x) {
+	return (x >> 31) | (!!x);
+}
+
+int abs(int x) {
+	return sign(x)*x;
+}
+
+
+float sqrt3(const float x)
+{
+	union
+	{
+		int i;
+		float x;
+	} u;
+	u.x = x;
+	u.i = (1 << 29) + (u.i >> 1) - (1 << 22);
+
+	// Two Babylonian Steps (simplified from:)
+	u.x = 0.5f * (u.x + x / u.x);
+	u.x = 0.5f * (u.x + x / u.x);
+
+	u.x = u.x + x / u.x;
+	u.x = 0.25f*u.x + x / u.x;
+
+	return u.x;
+}
+
+
 #ifndef __GNUC__
 
-u16 bswap16 (u16 usValue)
+u16 bswap16(u16 usValue)
 {
 	return    ((usValue & 0x00FF) << 8)
 		| ((usValue & 0xFF00) >> 8);
 }
 
-u32 bswap32 (u32 ulValue)
+u32 bswap32(u32 ulValue)
 {
 	return    ((ulValue & 0x000000FF) << 24)
 		| ((ulValue & 0x0000FF00) << 8)
 		| ((ulValue & 0x00FF0000) >> 8)
 		| ((ulValue & 0xFF000000) >> 24);
 }
+
 
 #endif

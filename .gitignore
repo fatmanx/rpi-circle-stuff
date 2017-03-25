@@ -2,3 +2,7 @@
 /Raspberry Metal Lib/*.a
 /.vs/Project1/v14/*.suo
 /Raspberry Metal Lib/Debug/*.log
+/Debug
+/Raspberry Metal Sample 1/*.o
+/MathTableGenerator/bin/Debug
+/MathTableGenerator/obj/Debug
