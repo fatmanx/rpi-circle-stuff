@@ -16,6 +16,8 @@ Archive member included to satisfy reference by file (symbol)
                               main.o (halt)
 ../Raspberry Metal Lib/libcircle.a(timer.o)
                               ../Raspberry Metal Lib/libcircle.a(actled.o) (CTimer::SimpleMsDelay(unsigned int))
+../Raspberry Metal Lib/libcircle.a(util.o)
+                              kernel.o (memset)
 ../Raspberry Metal Lib/libcircle.a(util_fast.o)
                               kernel.o (memcpy)
 ../Raspberry Metal Lib/libcircle.a(koptions.o)
@@ -56,8 +58,6 @@ Archive member included to satisfy reference by file (symbol)
                               ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o) (CBcmMailBox::CBcmMailBox(unsigned int))
 ../Raspberry Metal Lib/libcircle.a(libstub.o)
                               ../Raspberry Metal Lib/libcircle.a(timer.o) (__aeabi_uidiv)
-../Raspberry Metal Lib/libcircle.a(util.o)
-                              ../Raspberry Metal Lib/libcircle.a(screen.o) (memset)
 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
                               ../Raspberry Metal Lib/libcircle.a(screen.o) (CBcmFrameBuffer::CBcmFrameBuffer(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int))
 ../Raspberry Metal Lib/libcircle.a(device.o)
@@ -78,7 +78,7 @@ Linker script and memory map
 
                 0x00008000                . = 0x8000
 
-.text           0x00008000     0x80d4
+.text           0x00008000     0x7fc4
  *(.text*)
  .text          0x00008000       0x5c ../Raspberry Metal Lib/startup.o
                 0x00008000                _start
@@ -86,611 +86,611 @@ Linker script and memory map
  .text.startup  0x0000805c       0x68 main.o
                 0x0000805c                main
  *fill*         0x000080c4        0x4 
- .text          0x000080c8      0x810 kernel.o
+ .text          0x000080c8      0x798 kernel.o
                 0x000080c8                isine(double)
                 0x0000823c                icosine(double)
                 0x00008250                CKernel::CKernel()
                 0x00008250                CKernel::CKernel()
-                0x000082b4                CKernel::Initialize()
-                0x000082c0                fact(int)
-                0x000082e0                pow(float, int)
-                0x0000830c                sine(float)
-                0x00008374                CKernel::~CKernel()
-                0x00008374                CKernel::~CKernel()
-                0x000083b4                CKernel::writeln(CString)
-                0x00008400                CKernel::Run()
- .text          0x000088d8      0x214 ../Raspberry Metal Lib/libcircle.a(actled.o)
-                0x000088d8                CActLED::~CActLED()
-                0x000088d8                CActLED::~CActLED()
-                0x000088ec                CActLED::On()
-                0x0000892c                CActLED::Off()
-                0x0000896c                CActLED::CActLED()
-                0x0000896c                CActLED::CActLED()
-                0x00008a8c                CActLED::Blink(unsigned int, unsigned int, unsigned int)
-                0x00008adc                CActLED::Get()
- .text          0x00008aec      0x1cc ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
-                0x00008aec                CBcmPropertyTags::CBcmPropertyTags()
-                0x00008aec                CBcmPropertyTags::CBcmPropertyTags()
-                0x00008b04                CBcmPropertyTags::~CBcmPropertyTags()
-                0x00008b04                CBcmPropertyTags::~CBcmPropertyTags()
-                0x00008b18                CBcmPropertyTags::GetTags(void*, unsigned int)
-                0x00008c0c                CBcmPropertyTags::GetTag(unsigned int, void*, unsigned int, unsigned int)
- .text          0x00008cb8      0xde8 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
-                0x00008cb8                CGPIOPin::~CGPIOPin()
-                0x00008cb8                CGPIOPin::~CGPIOPin()
-                0x00008cbc                CGPIOPin::~CGPIOPin()
-                0x00008cd0                CGPIOPin::Write(unsigned int)
-                0x00008d94                CGPIOPin::Read() const
-                0x00008e30                CGPIOPin::Invert()
-                0x00008e70                CGPIOPin::ConnectInterrupt(void (*)(void*), void*)
-                0x00008f70                CGPIOPin::DisconnectInterrupt()
-                0x0000904c                CGPIOPin::EnableInterrupt(TGPIOInterrupt)
-                0x000091c4                CGPIOPin::DisableInterrupt()
-                0x000092b0                CGPIOPin::EnableInterrupt2(TGPIOInterrupt)
-                0x00009434                CGPIOPin::DisableInterrupt2()
-                0x00009524                CGPIOPin::SetPullUpMode(unsigned int)
-                0x00009600                CGPIOPin::SetAlternateFunction(unsigned int)
-                0x000096d0                CGPIOPin::SetMode(TGPIOMode, int)
-                0x0000989c                CGPIOPin::CGPIOPin(unsigned int, TGPIOMode, CGPIOManager*)
-                0x0000989c                CGPIOPin::CGPIOPin(unsigned int, TGPIOMode, CGPIOManager*)
-                0x00009930                CGPIOPin::InterruptHandler()
-                0x000099e4                CGPIOPin::DisableAllInterrupts(unsigned int)
- .text.startup  0x00009aa0       0x14 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .text          0x00009ab4      0x390 ../Raspberry Metal Lib/libcircle.a(memory.o)
-                0x00009ab4                CMemorySystem::~CMemorySystem()
-                0x00009ab4                CMemorySystem::~CMemorySystem()
-                0x00009b2c                CMemorySystem::GetMemSize() const
-                0x00009b34                CMemorySystem::SetPageTable0(CPageTable*, unsigned int)
-                0x00009ba0                CMemorySystem::SetPageTable0(unsigned int, unsigned int)
-                0x00009bf4                CMemorySystem::GetTTBR0() const
-                0x00009c24                CMemorySystem::GetContextID() const
-                0x00009c54                CMemorySystem::EnableMMU()
-                0x00009d60                CMemorySystem::CMemorySystem(int)
-                0x00009d60                CMemorySystem::CMemorySystem(int)
- .text          0x00009e44       0x10 ../Raspberry Metal Lib/libcircle.a(new.o)
-                0x00009e44                operator new(unsigned int)
-                0x00009e48                operator new[](unsigned int)
-                0x00009e4c                operator delete(void*)
-                0x00009e50                operator delete[](void*)
- .text          0x00009e54      0x100 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
-                0x00009e54                EnterCritical
-                0x00009e90                LeaveCritical
-                0x00009ef8                CleanAndInvalidateDataCacheRange
-                0x00009f34                SyncDataAndInstructionCache
- .text          0x00009f54       0xe8 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
-                0x00009f54                __aeabi_atexit
-                0x00009f58                halt
-                0x00009f60                reboot
-                0x00009f8c                sysinit
- .text          0x0000a03c      0xbd0 ../Raspberry Metal Lib/libcircle.a(timer.o)
-                0x0000a074                CTimer::CTimer(CInterruptSystem*)
-                0x0000a074                CTimer::CTimer(CInterruptSystem*)
-                0x0000a0f8                CTimer::~CTimer()
-                0x0000a0f8                CTimer::~CTimer()
-                0x0000a1d0                CTimer::SetTimeZone(int)
-                0x0000a1f4                CTimer::GetTimeZone() const
-                0x0000a1fc                CTimer::SetTime(unsigned int, int)
-                0x0000a278                CTimer::GetClockTicks()
-                0x0000a294                CTimer::GetTicks() const
-                0x0000a29c                CTimer::GetUptime() const
-                0x0000a2a4                CTimer::GetTime() const
-                0x0000a2ac                CTimer::GetUniversalTime() const
-                0x0000a2cc                CTimer::GetTimeString()
-                0x0000a4f0                CTimer::StartKernelTimer(unsigned int, void (*)(unsigned int, void*, void*), void*, void*)
-                0x0000a638                CTimer::CancelKernelTimer(unsigned int)
-                0x0000a6f0                CTimer::PollKernelTimers()
-                0x0000a850                CTimer::InterruptHandler()
-                0x0000a97c                CTimer::InterruptHandler(void*)
-                0x0000a9bc                CTimer::TuneMsDelay()
-                0x0000aa64                CTimer::Initialize()
-                0x0000aaec                CTimer::SimpleMsDelay(unsigned int)
-                0x0000ab08                CTimer::SimpleusDelay(unsigned int)
-                0x0000ab14                CTimer::IsLeapYear(unsigned int)
-                0x0000ab60                CTimer::GetDaysOfMonth(unsigned int, unsigned int)
-                0x0000abd0                CTimer::Get()
- .text          0x0000ac0c       0x5c ../Raspberry Metal Lib/libcircle.a(util_fast.o)
-                0x0000ac0c                memcpy
- .text          0x0000ac68      0x4e0 ../Raspberry Metal Lib/libcircle.a(koptions.o)
-                0x0000accc                CKernelOptions::~CKernelOptions()
-                0x0000accc                CKernelOptions::~CKernelOptions()
-                0x0000ace0                CKernelOptions::GetWidth() const
-                0x0000ace8                CKernelOptions::GetHeight() const
-                0x0000acf0                CKernelOptions::GetLogDevice() const
-                0x0000acfc                CKernelOptions::GetLogLevel() const
-                0x0000ad04                CKernelOptions::GetKeyMap() const
-                0x0000ad0c                CKernelOptions::GetUSBPowerDelay() const
-                0x0000ad14                CKernelOptions::GetCPUSpeed() const
-                0x0000ad1c                CKernelOptions::GetSoCMaxTemp() const
-                0x0000ad24                CKernelOptions::Get()
-                0x0000ad34                CKernelOptions::GetToken()
-                0x0000ada8                CKernelOptions::CKernelOptions()
-                0x0000ada8                CKernelOptions::CKernelOptions()
-                0x0000b0f0                CKernelOptions::GetOptionValue(char*)
-                0x0000b128                CKernelOptions::GetDecimal(char*)
- .text          0x0000b148      0x1f0 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
-                0x0000b148                CPageTable::CPageTable()
-                0x0000b148                CPageTable::CPageTable()
-                0x0000b1e4                CPageTable::CPageTable(unsigned int)
-                0x0000b1e4                CPageTable::CPageTable(unsigned int)
-                0x0000b308                CPageTable::~CPageTable()
-                0x0000b308                CPageTable::~CPageTable()
-                0x0000b32c                CPageTable::GetBaseAddress() const
- .text          0x0000b338     0x12b4 ../Raspberry Metal Lib/libcircle.a(screen.o)
-                0x0000b338                CScreenDevice::~CScreenDevice()
-                0x0000b338                CScreenDevice::~CScreenDevice()
-                0x0000b3ac                CScreenDevice::~CScreenDevice()
-                0x0000b47c                CScreenDevice::CScreenDevice(unsigned int, unsigned int, int)
-                0x0000b47c                CScreenDevice::CScreenDevice(unsigned int, unsigned int, int)
-                0x0000b4f4                CScreenDevice::Clear()
-                0x0000b57c                CScreenDevice::GetWidth() const
-                0x0000b584                CScreenDevice::GetHeight() const
-                0x0000b58c                CScreenDevice::GetColumns() const
-                0x0000b5ac                CScreenDevice::GetRows() const
-                0x0000b5cc                CScreenDevice::GetStatus()
-                0x0000b63c                CScreenDevice::SetStatus(TScreenStatus)
-                0x0000b758                CScreenDevice::CarriageReturn()
-                0x0000b764                CScreenDevice::CursorHome()
-                0x0000b778                CScreenDevice::CursorLeft()
-                0x0000b7e4                CScreenDevice::CursorMove(unsigned int, unsigned int)
-                0x0000b844                CScreenDevice::CursorUp()
-                0x0000b874                CScreenDevice::DeleteChars(unsigned int)
-                0x0000b878                CScreenDevice::DeleteLines(unsigned int)
-                0x0000b87c                CScreenDevice::InsertLines(unsigned int)
-                0x0000b880                CScreenDevice::InsertMode(int)
-                0x0000b888                CScreenDevice::ReverseScroll()
-                0x0000b88c                CScreenDevice::SetCursorMode(int)
-                0x0000b894                CScreenDevice::SetScrollRegion(unsigned int, unsigned int)
-                0x0000b914                CScreenDevice::SetStandoutMode(unsigned int)
-                0x0000b9b4                CScreenDevice::Scroll()
-                0x0000ba58                CScreenDevice::CursorDown()
-                0x0000baa4                CScreenDevice::NewLine()
-                0x0000bab0                CScreenDevice::CursorRight()
-                0x0000baec                CScreenDevice::Tabulator()
-                0x0000bb38                CScreenDevice::DisplayChar(char, unsigned int, unsigned int, unsigned short)
-                0x0000bc0c                CScreenDevice::DisplayChar(char)
-                0x0000bc48                CScreenDevice::EraseChar(unsigned int, unsigned int)
-                0x0000bcdc                CScreenDevice::ClearLineEnd()
-                0x0000bd24                CScreenDevice::ClearDisplayEnd()
-                0x0000bd6c                CScreenDevice::Initialize()
-                0x0000bf40                CScreenDevice::EraseChars(unsigned int)
-                0x0000bf4c                CScreenDevice::Write(char)
-                0x0000c454                CScreenDevice::Write(void const*, unsigned int)
-                0x0000c51c                CScreenDevice::InvertCursor()
-                0x0000c52c                CScreenDevice::SetPixel(unsigned int, unsigned int, unsigned short)
-                0x0000c558                CScreenDevice::GetPixel(unsigned int, unsigned int)
-                0x0000c590                CScreenDevice::Rotor(unsigned int, unsigned int)
- .text          0x0000c5ec       0x88 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
-                0x0000c5ec                CScreenDeviceExt::~CScreenDeviceExt()
-                0x0000c5ec                CScreenDeviceExt::~CScreenDeviceExt()
-                0x0000c60c                CScreenDeviceExt::~CScreenDeviceExt()
-                0x0000c634                CScreenDeviceExt::CScreenDeviceExt(unsigned int, unsigned int, int)
-                0x0000c634                CScreenDeviceExt::CScreenDeviceExt(unsigned int, unsigned int, int)
-                0x0000c654                CScreenDeviceExt::DrawLine(int, int, int, int, unsigned short)
- .text          0x0000c674       0x88 ../Raspberry Metal Lib/libcircle.a(assert.o)
-                0x0000c674                assertion_failed
- .text          0x0000c6fc       0xa8 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
-                0x0000c6fc                CCharGenerator::CCharGenerator()
-                0x0000c6fc                CCharGenerator::CCharGenerator()
-                0x0000c708                CCharGenerator::~CCharGenerator()
-                0x0000c708                CCharGenerator::~CCharGenerator()
-                0x0000c70c                CCharGenerator::GetCharWidth() const
-                0x0000c714                CCharGenerator::GetCharHeight() const
-                0x0000c71c                CCharGenerator::GetUnderline() const
-                0x0000c724                CCharGenerator::GetPixel(char, unsigned int, unsigned int) const
- .text          0x0000c7a4      0x194 ../Raspberry Metal Lib/libcircle.a(debug.o)
-                0x0000c7a4                debug_hexdump(void const*, unsigned int, char const*)
-                0x0000c8ac                debug_stacktrace(unsigned int const*, char const*)
- .text          0x0000c938      0x2a4 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
-                0x0000c938                CDeviceNameService::CDeviceNameService()
-                0x0000c938                CDeviceNameService::CDeviceNameService()
-                0x0000c984                CDeviceNameService::~CDeviceNameService()
-                0x0000c984                CDeviceNameService::~CDeviceNameService()
-                0x0000c9e4                CDeviceNameService::AddDevice(char const*, CDevice*, int)
-                0x0000ca9c                CDeviceNameService::GetDevice(char const*, int)
-                0x0000cba4                CDeviceNameService::Get()
- .text          0x0000cbdc      0x468 ../Raspberry Metal Lib/libcircle.a(logger.o)
-                0x0000cbdc                CLogger::CLogger(unsigned int, CTimer*)
-                0x0000cbdc                CLogger::CLogger(unsigned int, CTimer*)
-                0x0000cc24                CLogger::~CLogger()
-                0x0000cc24                CLogger::~CLogger()
-                0x0000cc54                CLogger::Get()
-                0x0000cc64                CLogger::Write(char const*)
-                0x0000cd10                CLogger::Read(void*, unsigned int)
-                0x0000cddc                CLogger::WriteV(char const*, TLogSeverity, char const*, std::__va_list)
-                0x0000cfd0                CLogger::Write(char const*, TLogSeverity, char const*, ...)
-                0x0000d000                CLogger::Initialize(CDevice*)
- *fill*         0x0000d044        0x4 
- .text          0x0000d048      0xac0 ../Raspberry Metal Lib/libcircle.a(string.o)
-                0x0000d048                CString::~CString()
-                0x0000d048                CString::~CString()
-                0x0000d074                CString::~CString()
-                0x0000d118                CString::CString()
-                0x0000d118                CString::CString()
-                0x0000d130                CString::CString(char const*)
-                0x0000d130                CString::CString(char const*)
-                0x0000d170                CString::operator char const*() const
-                0x0000d188                CString::operator=(char const*)
-                0x0000d1cc                CString::GetLength() const
-                0x0000d1dc                CString::Append(char const*)
-                0x0000d260                CString::Compare(char const*) const
-                0x0000d268                CString::Find(char) const
-                0x0000d2bc                CString::PutChar(char, unsigned int)
-                0x0000d2fc                CString::PutString(char const*)
-                0x0000d340                CString::ReserveSpace(unsigned int)
-                0x0000d34c                CString::ntoa(char*, unsigned long, unsigned int, int)
-                0x0000d40c                CString::ftoa(char*, double, unsigned int)
-                0x0000d574                CString::FormatV(char const*, std::__va_list)
-                0x0000dad8                CString::Format(char const*, ...)
- .text          0x0000db08       0x10 ../Raspberry Metal Lib/libcircle.a(delayloop.o)
-                0x0000db08                DelayLoop
- .text          0x0000db18      0x408 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
-                0x0000db18                CInterruptSystem::CInterruptSystem()
-                0x0000db18                CInterruptSystem::CInterruptSystem()
-                0x0000db54                CInterruptSystem::~CInterruptSystem()
-                0x0000db54                CInterruptSystem::~CInterruptSystem()
-                0x0000db68                CInterruptSystem::Initialize()
-                0x0000dbbc                CInterruptSystem::EnableIRQ(unsigned int)
-                0x0000dc3c                CInterruptSystem::ConnectIRQ(unsigned int, void (*)(void*), void*)
-                0x0000dcac                CInterruptSystem::DisableIRQ(unsigned int)
-                0x0000dd2c                CInterruptSystem::DisconnectIRQ(unsigned int)
-                0x0000dda8                CInterruptSystem::Get()
-                0x0000dde0                CInterruptSystem::CallIRQHandler(unsigned int)
-                0x0000de4c                CInterruptSystem::InterruptHandler()
-                0x0000df08                InterruptHandler
- .text          0x0000df20      0x380 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
-                0x0000df20                CGPIOManager::CGPIOManager(CInterruptSystem*)
-                0x0000df20                CGPIOManager::CGPIOManager(CInterruptSystem*)
-                0x0000df4c                CGPIOManager::~CGPIOManager()
-                0x0000df4c                CGPIOManager::~CGPIOManager()
-                0x0000dfcc                CGPIOManager::Initialize()
-                0x0000e04c                CGPIOManager::ConnectInterrupt(CGPIOPin*)
-                0x0000e0f0                CGPIOManager::DisconnectInterrupt(CGPIOPin*)
-                0x0000e1a8                CGPIOManager::InterruptHandler()
-                0x0000e264                CGPIOManager::InterruptStub(void*)
- .text          0x0000e2a0      0x1d8 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
-                0x0000e2a0                CVirtualGPIOPin::~CVirtualGPIOPin()
-                0x0000e2a0                CVirtualGPIOPin::~CVirtualGPIOPin()
-                0x0000e2a4                CVirtualGPIOPin::~CVirtualGPIOPin()
-                0x0000e2b8                CVirtualGPIOPin::Write(unsigned int)
-                0x0000e388                CVirtualGPIOPin::CVirtualGPIOPin(unsigned int)
-                0x0000e388                CVirtualGPIOPin::CVirtualGPIOPin(unsigned int)
-                0x0000e46c                CVirtualGPIOPin::Invert()
- .text.startup  0x0000e478       0x14 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .text          0x0000e48c      0x404 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
-                0x0000e48c                CMachineInfo::CMachineInfo()
-                0x0000e48c                CMachineInfo::CMachineInfo()
-                0x0000e654                CMachineInfo::~CMachineInfo()
-                0x0000e654                CMachineInfo::~CMachineInfo()
-                0x0000e678                CMachineInfo::GetMachineModel() const
-                0x0000e680                CMachineInfo::GetMachineName() const
-                0x0000e698                CMachineInfo::GetModelMajor() const
-                0x0000e6a0                CMachineInfo::GetModelRevision() const
-                0x0000e6a8                CMachineInfo::GetSoCType() const
-                0x0000e6b0                CMachineInfo::GetRAMSize() const
-                0x0000e6b8                CMachineInfo::GetSoCName() const
-                0x0000e6d0                CMachineInfo::GetRevisionRaw() const
-                0x0000e6d8                CMachineInfo::GetClockRate(unsigned int) const
-                0x0000e7a4                CMachineInfo::GetGPIOPin(TGPIOVirtualPin) const
-                0x0000e818                CMachineInfo::GetDevice(TDeviceId) const
-                0x0000e854                CMachineInfo::Get()
- .text          0x0000e890      0x4a8 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
-                0x0000e890                CPtrList::CPtrList()
-                0x0000e890                CPtrList::CPtrList()
-                0x0000e89c                CPtrList::~CPtrList()
-                0x0000e89c                CPtrList::~CPtrList()
-                0x0000e8d0                CPtrList::GetFirst()
-                0x0000e8d8                CPtrList::GetNext(TPtrListElement*)
-                0x0000e930                CPtrList::GetPtr(TPtrListElement*)
-                0x0000e988                CPtrList::InsertBefore(TPtrListElement*, void*)
-                0x0000ea88                CPtrList::InsertAfter(TPtrListElement*, void*)
-                0x0000eb84                CPtrList::Remove(TPtrListElement*)
-                0x0000eccc                CPtrList::Find(void*)
- .text          0x0000ed38      0x49c ../Raspberry Metal Lib/libcircle.a(alloc.o)
-                0x0000ed38                mem_init
-                0x0000ed74                mem_get_size
-                0x0000ed9c                malloc
-                0x0000ef60                free
-                0x0000f080                palloc
-                0x0000f170                pfree
- .text.startup  0x0000f1d4       0x18 ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .text          0x0000f1ec      0x178 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
-                0x0000f1ec                CBcmMailBox::CBcmMailBox(unsigned int)
-                0x0000f1ec                CBcmMailBox::CBcmMailBox(unsigned int)
-                0x0000f1f8                CBcmMailBox::~CBcmMailBox()
-                0x0000f1f8                CBcmMailBox::~CBcmMailBox()
-                0x0000f1fc                CBcmMailBox::Flush()
-                0x0000f230                CBcmMailBox::Read()
-                0x0000f264                CBcmMailBox::Write(unsigned int)
-                0x0000f2b8                CBcmMailBox::WriteRead(unsigned int)
- .text          0x0000f364       0x30 ../Raspberry Metal Lib/libcircle.a(libstub.o)
-                0x0000f364                __aeabi_uidiv
-                0x0000f374                __aeabi_uidivmod
-                0x0000f390                __aeabi_idiv
- .text          0x0000f394      0x528 ../Raspberry Metal Lib/libcircle.a(util.o)
-                0x0000f394                memset
-                0x0000f3b8                memcmp
-                0x0000f414                strlen
-                0x0000f43c                strcmp
-                0x0000f4cc                strcpy
-                0x0000f4f8                strncpy
-                0x0000f548                strcat
-                0x0000f58c                strchr
-                0x0000f5cc                strtok_r
-                0x0000f6b0                strtoul
-                0x0000f844                char2int
-                0x0000f848                sign
-                0x0000f85c                abs
-                0x0000f870                sqrt3
- .text          0x0000f8bc      0x3c0 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
-                0x0000f944                CBcmFrameBuffer::CBcmFrameBuffer(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
-                0x0000f944                CBcmFrameBuffer::CBcmFrameBuffer(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
-                0x0000fa7c                CBcmFrameBuffer::~CBcmFrameBuffer()
-                0x0000fa7c                CBcmFrameBuffer::~CBcmFrameBuffer()
-                0x0000fa94                CBcmFrameBuffer::SetPalette(unsigned char, unsigned short)
-                0x0000fad0                CBcmFrameBuffer::SetPalette32(unsigned char, unsigned int)
-                0x0000fae8                CBcmFrameBuffer::Initialize()
-                0x0000fbac                CBcmFrameBuffer::GetWidth() const
-                0x0000fbb4                CBcmFrameBuffer::GetHeight() const
-                0x0000fbbc                CBcmFrameBuffer::GetVirtWidth() const
-                0x0000fbc4                CBcmFrameBuffer::GetVirtHeight() const
-                0x0000fbcc                CBcmFrameBuffer::GetPitch() const
-                0x0000fbd4                CBcmFrameBuffer::GetDepth() const
-                0x0000fbdc                CBcmFrameBuffer::GetBuffer() const
-                0x0000fbe4                CBcmFrameBuffer::GetSize() const
-                0x0000fbec                CBcmFrameBuffer::UpdatePalette()
-                0x0000fc04                CBcmFrameBuffer::SetVirtualOffset(unsigned int, unsigned int)
- .text          0x0000fc7c       0x44 ../Raspberry Metal Lib/libcircle.a(device.o)
-                0x0000fc7c                CDevice::~CDevice()
-                0x0000fc7c                CDevice::~CDevice()
-                0x0000fc80                CDevice::Read(void*, unsigned int)
-                0x0000fc88                CDevice::Write(void const*, unsigned int)
-                0x0000fc90                CDevice::Seek(unsigned long long)
-                0x0000fc9c                CDevice::~CDevice()
-                0x0000fcb0                CDevice::CDevice()
-                0x0000fcb0                CDevice::CDevice()
- .text          0x0000fcc0       0xd0 ../Raspberry Metal Lib/libcircle.a(exceptionstub.o)
-                0x0000fcc0                UndefinedInstructionStub
-                0x0000fd00                PrefetchAbortStub
-                0x0000fd40                DataAbortStub
-                0x0000fd80                IRQStub
- .text          0x0000fd90      0x128 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
-                0x0000fd90                __Divide
-                0x0000fe64                __DivideInteger
- .text          0x0000feb8      0x21c ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
-                0x0000feb8                CExceptionHandler::CExceptionHandler()
-                0x0000feb8                CExceptionHandler::CExceptionHandler()
-                0x0000ff48                CExceptionHandler::~CExceptionHandler()
-                0x0000ff48                CExceptionHandler::~CExceptionHandler()
-                0x0000ff5c                CExceptionHandler::Throw(unsigned int)
-                0x0000ff9c                CExceptionHandler::Throw(unsigned int, TAbortFrame*)
-                0x00010074                CExceptionHandler::Get()
-                0x000100ac                ExceptionHandler
-                0x000100d4                _etext = .
+                0x0000829c                CKernel::Initialize()
+                0x000082a8                fact(int)
+                0x000082c8                pow(float, int)
+                0x000082f4                sine(float)
+                0x0000835c                CKernel::~CKernel()
+                0x0000835c                CKernel::~CKernel()
+                0x0000839c                CKernel::writeln(CString)
+                0x000083e8                CKernel::Run()
+ .text          0x00008860      0x214 ../Raspberry Metal Lib/libcircle.a(actled.o)
+                0x00008860                CActLED::~CActLED()
+                0x00008860                CActLED::~CActLED()
+                0x00008874                CActLED::On()
+                0x000088b4                CActLED::Off()
+                0x000088f4                CActLED::CActLED()
+                0x000088f4                CActLED::CActLED()
+                0x00008a14                CActLED::Blink(unsigned int, unsigned int, unsigned int)
+                0x00008a64                CActLED::Get()
+ .text          0x00008a74      0x1cc ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+                0x00008a74                CBcmPropertyTags::CBcmPropertyTags()
+                0x00008a74                CBcmPropertyTags::CBcmPropertyTags()
+                0x00008a8c                CBcmPropertyTags::~CBcmPropertyTags()
+                0x00008a8c                CBcmPropertyTags::~CBcmPropertyTags()
+                0x00008aa0                CBcmPropertyTags::GetTags(void*, unsigned int)
+                0x00008b94                CBcmPropertyTags::GetTag(unsigned int, void*, unsigned int, unsigned int)
+ .text          0x00008c40      0xde8 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+                0x00008c40                CGPIOPin::~CGPIOPin()
+                0x00008c40                CGPIOPin::~CGPIOPin()
+                0x00008c44                CGPIOPin::~CGPIOPin()
+                0x00008c58                CGPIOPin::Write(unsigned int)
+                0x00008d1c                CGPIOPin::Read() const
+                0x00008db8                CGPIOPin::Invert()
+                0x00008df8                CGPIOPin::ConnectInterrupt(void (*)(void*), void*)
+                0x00008ef8                CGPIOPin::DisconnectInterrupt()
+                0x00008fd4                CGPIOPin::EnableInterrupt(TGPIOInterrupt)
+                0x0000914c                CGPIOPin::DisableInterrupt()
+                0x00009238                CGPIOPin::EnableInterrupt2(TGPIOInterrupt)
+                0x000093bc                CGPIOPin::DisableInterrupt2()
+                0x000094ac                CGPIOPin::SetPullUpMode(unsigned int)
+                0x00009588                CGPIOPin::SetAlternateFunction(unsigned int)
+                0x00009658                CGPIOPin::SetMode(TGPIOMode, int)
+                0x00009824                CGPIOPin::CGPIOPin(unsigned int, TGPIOMode, CGPIOManager*)
+                0x00009824                CGPIOPin::CGPIOPin(unsigned int, TGPIOMode, CGPIOManager*)
+                0x000098b8                CGPIOPin::InterruptHandler()
+                0x0000996c                CGPIOPin::DisableAllInterrupts(unsigned int)
+ .text.startup  0x00009a28       0x14 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .text          0x00009a3c      0x390 ../Raspberry Metal Lib/libcircle.a(memory.o)
+                0x00009a3c                CMemorySystem::~CMemorySystem()
+                0x00009a3c                CMemorySystem::~CMemorySystem()
+                0x00009ab4                CMemorySystem::GetMemSize() const
+                0x00009abc                CMemorySystem::SetPageTable0(CPageTable*, unsigned int)
+                0x00009b28                CMemorySystem::SetPageTable0(unsigned int, unsigned int)
+                0x00009b7c                CMemorySystem::GetTTBR0() const
+                0x00009bac                CMemorySystem::GetContextID() const
+                0x00009bdc                CMemorySystem::EnableMMU()
+                0x00009ce8                CMemorySystem::CMemorySystem(int)
+                0x00009ce8                CMemorySystem::CMemorySystem(int)
+ .text          0x00009dcc       0x10 ../Raspberry Metal Lib/libcircle.a(new.o)
+                0x00009dcc                operator new(unsigned int)
+                0x00009dd0                operator new[](unsigned int)
+                0x00009dd4                operator delete(void*)
+                0x00009dd8                operator delete[](void*)
+ .text          0x00009ddc      0x100 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+                0x00009ddc                EnterCritical
+                0x00009e18                LeaveCritical
+                0x00009e80                CleanAndInvalidateDataCacheRange
+                0x00009ebc                SyncDataAndInstructionCache
+ .text          0x00009edc       0xe8 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+                0x00009edc                __aeabi_atexit
+                0x00009ee0                halt
+                0x00009ee8                reboot
+                0x00009f14                sysinit
+ .text          0x00009fc4      0xbd0 ../Raspberry Metal Lib/libcircle.a(timer.o)
+                0x00009ffc                CTimer::CTimer(CInterruptSystem*)
+                0x00009ffc                CTimer::CTimer(CInterruptSystem*)
+                0x0000a080                CTimer::~CTimer()
+                0x0000a080                CTimer::~CTimer()
+                0x0000a158                CTimer::SetTimeZone(int)
+                0x0000a17c                CTimer::GetTimeZone() const
+                0x0000a184                CTimer::SetTime(unsigned int, int)
+                0x0000a200                CTimer::GetClockTicks()
+                0x0000a21c                CTimer::GetTicks() const
+                0x0000a224                CTimer::GetUptime() const
+                0x0000a22c                CTimer::GetTime() const
+                0x0000a234                CTimer::GetUniversalTime() const
+                0x0000a254                CTimer::GetTimeString()
+                0x0000a478                CTimer::StartKernelTimer(unsigned int, void (*)(unsigned int, void*, void*), void*, void*)
+                0x0000a5c0                CTimer::CancelKernelTimer(unsigned int)
+                0x0000a678                CTimer::PollKernelTimers()
+                0x0000a7d8                CTimer::InterruptHandler()
+                0x0000a904                CTimer::InterruptHandler(void*)
+                0x0000a944                CTimer::TuneMsDelay()
+                0x0000a9ec                CTimer::Initialize()
+                0x0000aa74                CTimer::SimpleMsDelay(unsigned int)
+                0x0000aa90                CTimer::SimpleusDelay(unsigned int)
+                0x0000aa9c                CTimer::IsLeapYear(unsigned int)
+                0x0000aae8                CTimer::GetDaysOfMonth(unsigned int, unsigned int)
+                0x0000ab58                CTimer::Get()
+ .text          0x0000ab94      0x528 ../Raspberry Metal Lib/libcircle.a(util.o)
+                0x0000ab94                memset
+                0x0000abb8                memcmp
+                0x0000ac14                strlen
+                0x0000ac3c                strcmp
+                0x0000accc                strcpy
+                0x0000acf8                strncpy
+                0x0000ad48                strcat
+                0x0000ad8c                strchr
+                0x0000adcc                strtok_r
+                0x0000aeb0                strtoul
+                0x0000b044                char2int
+                0x0000b048                sign
+                0x0000b05c                abs
+                0x0000b070                sqrt3
+ .text          0x0000b0bc       0x5c ../Raspberry Metal Lib/libcircle.a(util_fast.o)
+                0x0000b0bc                memcpy
+ .text          0x0000b118      0x4e0 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+                0x0000b17c                CKernelOptions::~CKernelOptions()
+                0x0000b17c                CKernelOptions::~CKernelOptions()
+                0x0000b190                CKernelOptions::GetWidth() const
+                0x0000b198                CKernelOptions::GetHeight() const
+                0x0000b1a0                CKernelOptions::GetLogDevice() const
+                0x0000b1ac                CKernelOptions::GetLogLevel() const
+                0x0000b1b4                CKernelOptions::GetKeyMap() const
+                0x0000b1bc                CKernelOptions::GetUSBPowerDelay() const
+                0x0000b1c4                CKernelOptions::GetCPUSpeed() const
+                0x0000b1cc                CKernelOptions::GetSoCMaxTemp() const
+                0x0000b1d4                CKernelOptions::Get()
+                0x0000b1e4                CKernelOptions::GetToken()
+                0x0000b258                CKernelOptions::CKernelOptions()
+                0x0000b258                CKernelOptions::CKernelOptions()
+                0x0000b5a0                CKernelOptions::GetOptionValue(char*)
+                0x0000b5d8                CKernelOptions::GetDecimal(char*)
+ .text          0x0000b5f8      0x1f0 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+                0x0000b5f8                CPageTable::CPageTable()
+                0x0000b5f8                CPageTable::CPageTable()
+                0x0000b694                CPageTable::CPageTable(unsigned int)
+                0x0000b694                CPageTable::CPageTable(unsigned int)
+                0x0000b7b8                CPageTable::~CPageTable()
+                0x0000b7b8                CPageTable::~CPageTable()
+                0x0000b7dc                CPageTable::GetBaseAddress() const
+ .text          0x0000b7e8     0x1240 ../Raspberry Metal Lib/libcircle.a(screen.o)
+                0x0000b7e8                CScreenDevice::~CScreenDevice()
+                0x0000b7e8                CScreenDevice::~CScreenDevice()
+                0x0000b85c                CScreenDevice::~CScreenDevice()
+                0x0000b92c                CScreenDevice::CScreenDevice(unsigned int, unsigned int, int)
+                0x0000b92c                CScreenDevice::CScreenDevice(unsigned int, unsigned int, int)
+                0x0000b9a0                CScreenDevice::Clear()
+                0x0000b9b4                CScreenDevice::GetWidth() const
+                0x0000b9bc                CScreenDevice::GetHeight() const
+                0x0000b9c4                CScreenDevice::GetColumns() const
+                0x0000b9e4                CScreenDevice::GetRows() const
+                0x0000ba04                CScreenDevice::GetStatus()
+                0x0000ba74                CScreenDevice::SetStatus(TScreenStatus)
+                0x0000bb90                CScreenDevice::CarriageReturn()
+                0x0000bb9c                CScreenDevice::CursorHome()
+                0x0000bbb0                CScreenDevice::CursorLeft()
+                0x0000bc1c                CScreenDevice::CursorMove(unsigned int, unsigned int)
+                0x0000bc7c                CScreenDevice::CursorUp()
+                0x0000bcac                CScreenDevice::DeleteChars(unsigned int)
+                0x0000bcb0                CScreenDevice::DeleteLines(unsigned int)
+                0x0000bcb4                CScreenDevice::InsertLines(unsigned int)
+                0x0000bcb8                CScreenDevice::InsertMode(int)
+                0x0000bcc0                CScreenDevice::ReverseScroll()
+                0x0000bcc4                CScreenDevice::SetCursorMode(int)
+                0x0000bccc                CScreenDevice::SetScrollRegion(unsigned int, unsigned int)
+                0x0000bd4c                CScreenDevice::SetStandoutMode(unsigned int)
+                0x0000bdec                CScreenDevice::Scroll()
+                0x0000be90                CScreenDevice::CursorDown()
+                0x0000bedc                CScreenDevice::NewLine()
+                0x0000bee8                CScreenDevice::CursorRight()
+                0x0000bf24                CScreenDevice::Tabulator()
+                0x0000bf70                CScreenDevice::DisplayChar(char, unsigned int, unsigned int, unsigned short)
+                0x0000c044                CScreenDevice::DisplayChar(char)
+                0x0000c080                CScreenDevice::EraseChar(unsigned int, unsigned int)
+                0x0000c114                CScreenDevice::ClearLineEnd()
+                0x0000c15c                CScreenDevice::ClearDisplayEnd()
+                0x0000c1a4                CScreenDevice::Initialize()
+                0x0000c37c                CScreenDevice::EraseChars(unsigned int)
+                0x0000c388                CScreenDevice::Write(char)
+                0x0000c890                CScreenDevice::Write(void const*, unsigned int)
+                0x0000c958                CScreenDevice::InvertCursor()
+                0x0000c968                CScreenDevice::SetPixel(unsigned int, unsigned int, unsigned short)
+                0x0000c994                CScreenDevice::GetPixel(unsigned int, unsigned int)
+                0x0000c9cc                CScreenDevice::Rotor(unsigned int, unsigned int)
+ .text          0x0000ca28       0x88 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+                0x0000ca28                CScreenDeviceExt::~CScreenDeviceExt()
+                0x0000ca28                CScreenDeviceExt::~CScreenDeviceExt()
+                0x0000ca48                CScreenDeviceExt::~CScreenDeviceExt()
+                0x0000ca70                CScreenDeviceExt::CScreenDeviceExt(unsigned int, unsigned int, int)
+                0x0000ca70                CScreenDeviceExt::CScreenDeviceExt(unsigned int, unsigned int, int)
+                0x0000ca90                CScreenDeviceExt::DrawLine(int, int, int, int, unsigned short)
+ .text          0x0000cab0       0x88 ../Raspberry Metal Lib/libcircle.a(assert.o)
+                0x0000cab0                assertion_failed
+ .text          0x0000cb38       0xa8 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+                0x0000cb38                CCharGenerator::CCharGenerator()
+                0x0000cb38                CCharGenerator::CCharGenerator()
+                0x0000cb44                CCharGenerator::~CCharGenerator()
+                0x0000cb44                CCharGenerator::~CCharGenerator()
+                0x0000cb48                CCharGenerator::GetCharWidth() const
+                0x0000cb50                CCharGenerator::GetCharHeight() const
+                0x0000cb58                CCharGenerator::GetUnderline() const
+                0x0000cb60                CCharGenerator::GetPixel(char, unsigned int, unsigned int) const
+ .text          0x0000cbe0      0x194 ../Raspberry Metal Lib/libcircle.a(debug.o)
+                0x0000cbe0                debug_hexdump(void const*, unsigned int, char const*)
+                0x0000cce8                debug_stacktrace(unsigned int const*, char const*)
+ .text          0x0000cd74      0x2a4 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+                0x0000cd74                CDeviceNameService::CDeviceNameService()
+                0x0000cd74                CDeviceNameService::CDeviceNameService()
+                0x0000cdc0                CDeviceNameService::~CDeviceNameService()
+                0x0000cdc0                CDeviceNameService::~CDeviceNameService()
+                0x0000ce20                CDeviceNameService::AddDevice(char const*, CDevice*, int)
+                0x0000ced8                CDeviceNameService::GetDevice(char const*, int)
+                0x0000cfe0                CDeviceNameService::Get()
+ .text          0x0000d018      0x468 ../Raspberry Metal Lib/libcircle.a(logger.o)
+                0x0000d018                CLogger::CLogger(unsigned int, CTimer*)
+                0x0000d018                CLogger::CLogger(unsigned int, CTimer*)
+                0x0000d060                CLogger::~CLogger()
+                0x0000d060                CLogger::~CLogger()
+                0x0000d090                CLogger::Get()
+                0x0000d0a0                CLogger::Write(char const*)
+                0x0000d14c                CLogger::Read(void*, unsigned int)
+                0x0000d218                CLogger::WriteV(char const*, TLogSeverity, char const*, std::__va_list)
+                0x0000d40c                CLogger::Write(char const*, TLogSeverity, char const*, ...)
+                0x0000d43c                CLogger::Initialize(CDevice*)
+ .text          0x0000d480      0xac0 ../Raspberry Metal Lib/libcircle.a(string.o)
+                0x0000d480                CString::~CString()
+                0x0000d480                CString::~CString()
+                0x0000d4ac                CString::~CString()
+                0x0000d550                CString::CString()
+                0x0000d550                CString::CString()
+                0x0000d568                CString::CString(char const*)
+                0x0000d568                CString::CString(char const*)
+                0x0000d5a8                CString::operator char const*() const
+                0x0000d5c0                CString::operator=(char const*)
+                0x0000d604                CString::GetLength() const
+                0x0000d614                CString::Append(char const*)
+                0x0000d698                CString::Compare(char const*) const
+                0x0000d6a0                CString::Find(char) const
+                0x0000d6f4                CString::PutChar(char, unsigned int)
+                0x0000d734                CString::PutString(char const*)
+                0x0000d778                CString::ReserveSpace(unsigned int)
+                0x0000d784                CString::ntoa(char*, unsigned long, unsigned int, int)
+                0x0000d844                CString::ftoa(char*, double, unsigned int)
+                0x0000d9ac                CString::FormatV(char const*, std::__va_list)
+                0x0000df10                CString::Format(char const*, ...)
+ .text          0x0000df40       0x10 ../Raspberry Metal Lib/libcircle.a(delayloop.o)
+                0x0000df40                DelayLoop
+ .text          0x0000df50      0x408 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+                0x0000df50                CInterruptSystem::CInterruptSystem()
+                0x0000df50                CInterruptSystem::CInterruptSystem()
+                0x0000df8c                CInterruptSystem::~CInterruptSystem()
+                0x0000df8c                CInterruptSystem::~CInterruptSystem()
+                0x0000dfa0                CInterruptSystem::Initialize()
+                0x0000dff4                CInterruptSystem::EnableIRQ(unsigned int)
+                0x0000e074                CInterruptSystem::ConnectIRQ(unsigned int, void (*)(void*), void*)
+                0x0000e0e4                CInterruptSystem::DisableIRQ(unsigned int)
+                0x0000e164                CInterruptSystem::DisconnectIRQ(unsigned int)
+                0x0000e1e0                CInterruptSystem::Get()
+                0x0000e218                CInterruptSystem::CallIRQHandler(unsigned int)
+                0x0000e284                CInterruptSystem::InterruptHandler()
+                0x0000e340                InterruptHandler
+ .text          0x0000e358      0x380 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+                0x0000e358                CGPIOManager::CGPIOManager(CInterruptSystem*)
+                0x0000e358                CGPIOManager::CGPIOManager(CInterruptSystem*)
+                0x0000e384                CGPIOManager::~CGPIOManager()
+                0x0000e384                CGPIOManager::~CGPIOManager()
+                0x0000e404                CGPIOManager::Initialize()
+                0x0000e484                CGPIOManager::ConnectInterrupt(CGPIOPin*)
+                0x0000e528                CGPIOManager::DisconnectInterrupt(CGPIOPin*)
+                0x0000e5e0                CGPIOManager::InterruptHandler()
+                0x0000e69c                CGPIOManager::InterruptStub(void*)
+ .text          0x0000e6d8      0x1d8 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+                0x0000e6d8                CVirtualGPIOPin::~CVirtualGPIOPin()
+                0x0000e6d8                CVirtualGPIOPin::~CVirtualGPIOPin()
+                0x0000e6dc                CVirtualGPIOPin::~CVirtualGPIOPin()
+                0x0000e6f0                CVirtualGPIOPin::Write(unsigned int)
+                0x0000e7c0                CVirtualGPIOPin::CVirtualGPIOPin(unsigned int)
+                0x0000e7c0                CVirtualGPIOPin::CVirtualGPIOPin(unsigned int)
+                0x0000e8a4                CVirtualGPIOPin::Invert()
+ .text.startup  0x0000e8b0       0x14 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .text          0x0000e8c4      0x404 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+                0x0000e8c4                CMachineInfo::CMachineInfo()
+                0x0000e8c4                CMachineInfo::CMachineInfo()
+                0x0000ea8c                CMachineInfo::~CMachineInfo()
+                0x0000ea8c                CMachineInfo::~CMachineInfo()
+                0x0000eab0                CMachineInfo::GetMachineModel() const
+                0x0000eab8                CMachineInfo::GetMachineName() const
+                0x0000ead0                CMachineInfo::GetModelMajor() const
+                0x0000ead8                CMachineInfo::GetModelRevision() const
+                0x0000eae0                CMachineInfo::GetSoCType() const
+                0x0000eae8                CMachineInfo::GetRAMSize() const
+                0x0000eaf0                CMachineInfo::GetSoCName() const
+                0x0000eb08                CMachineInfo::GetRevisionRaw() const
+                0x0000eb10                CMachineInfo::GetClockRate(unsigned int) const
+                0x0000ebdc                CMachineInfo::GetGPIOPin(TGPIOVirtualPin) const
+                0x0000ec50                CMachineInfo::GetDevice(TDeviceId) const
+                0x0000ec8c                CMachineInfo::Get()
+ .text          0x0000ecc8      0x4a8 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+                0x0000ecc8                CPtrList::CPtrList()
+                0x0000ecc8                CPtrList::CPtrList()
+                0x0000ecd4                CPtrList::~CPtrList()
+                0x0000ecd4                CPtrList::~CPtrList()
+                0x0000ed08                CPtrList::GetFirst()
+                0x0000ed10                CPtrList::GetNext(TPtrListElement*)
+                0x0000ed68                CPtrList::GetPtr(TPtrListElement*)
+                0x0000edc0                CPtrList::InsertBefore(TPtrListElement*, void*)
+                0x0000eec0                CPtrList::InsertAfter(TPtrListElement*, void*)
+                0x0000efbc                CPtrList::Remove(TPtrListElement*)
+                0x0000f104                CPtrList::Find(void*)
+ .text          0x0000f170      0x49c ../Raspberry Metal Lib/libcircle.a(alloc.o)
+                0x0000f170                mem_init
+                0x0000f1ac                mem_get_size
+                0x0000f1d4                malloc
+                0x0000f398                free
+                0x0000f4b8                palloc
+                0x0000f5a8                pfree
+ .text.startup  0x0000f60c       0x18 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .text          0x0000f624      0x178 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+                0x0000f624                CBcmMailBox::CBcmMailBox(unsigned int)
+                0x0000f624                CBcmMailBox::CBcmMailBox(unsigned int)
+                0x0000f630                CBcmMailBox::~CBcmMailBox()
+                0x0000f630                CBcmMailBox::~CBcmMailBox()
+                0x0000f634                CBcmMailBox::Flush()
+                0x0000f668                CBcmMailBox::Read()
+                0x0000f69c                CBcmMailBox::Write(unsigned int)
+                0x0000f6f0                CBcmMailBox::WriteRead(unsigned int)
+ .text          0x0000f79c       0x30 ../Raspberry Metal Lib/libcircle.a(libstub.o)
+                0x0000f79c                __aeabi_uidiv
+                0x0000f7ac                __aeabi_uidivmod
+                0x0000f7c8                __aeabi_idiv
+ .text          0x0000f7cc      0x3a0 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+                0x0000f854                CBcmFrameBuffer::CBcmFrameBuffer(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
+                0x0000f854                CBcmFrameBuffer::CBcmFrameBuffer(unsigned int, unsigned int, unsigned int, unsigned int, unsigned int)
+                0x0000f96c                CBcmFrameBuffer::~CBcmFrameBuffer()
+                0x0000f96c                CBcmFrameBuffer::~CBcmFrameBuffer()
+                0x0000f984                CBcmFrameBuffer::SetPalette(unsigned char, unsigned short)
+                0x0000f9c0                CBcmFrameBuffer::SetPalette32(unsigned char, unsigned int)
+                0x0000f9d8                CBcmFrameBuffer::Initialize()
+                0x0000fa9c                CBcmFrameBuffer::GetWidth() const
+                0x0000faa4                CBcmFrameBuffer::GetHeight() const
+                0x0000faac                CBcmFrameBuffer::GetVirtWidth() const
+                0x0000fab4                CBcmFrameBuffer::GetVirtHeight() const
+                0x0000fabc                CBcmFrameBuffer::GetPitch() const
+                0x0000fac4                CBcmFrameBuffer::GetDepth() const
+                0x0000facc                CBcmFrameBuffer::GetBuffer() const
+                0x0000fad4                CBcmFrameBuffer::GetSize() const
+                0x0000fadc                CBcmFrameBuffer::UpdatePalette()
+                0x0000faf4                CBcmFrameBuffer::SetVirtualOffset(unsigned int, unsigned int)
+ .text          0x0000fb6c       0x44 ../Raspberry Metal Lib/libcircle.a(device.o)
+                0x0000fb6c                CDevice::~CDevice()
+                0x0000fb6c                CDevice::~CDevice()
+                0x0000fb70                CDevice::Read(void*, unsigned int)
+                0x0000fb78                CDevice::Write(void const*, unsigned int)
+                0x0000fb80                CDevice::Seek(unsigned long long)
+                0x0000fb8c                CDevice::~CDevice()
+                0x0000fba0                CDevice::CDevice()
+                0x0000fba0                CDevice::CDevice()
+ .text          0x0000fbb0       0xd0 ../Raspberry Metal Lib/libcircle.a(exceptionstub.o)
+                0x0000fbb0                UndefinedInstructionStub
+                0x0000fbf0                PrefetchAbortStub
+                0x0000fc30                DataAbortStub
+                0x0000fc70                IRQStub
+ .text          0x0000fc80      0x128 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+                0x0000fc80                __Divide
+                0x0000fd54                __DivideInteger
+ .text          0x0000fda8      0x21c ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+                0x0000fda8                CExceptionHandler::CExceptionHandler()
+                0x0000fda8                CExceptionHandler::CExceptionHandler()
+                0x0000fe38                CExceptionHandler::~CExceptionHandler()
+                0x0000fe38                CExceptionHandler::~CExceptionHandler()
+                0x0000fe4c                CExceptionHandler::Throw(unsigned int)
+                0x0000fe8c                CExceptionHandler::Throw(unsigned int, TAbortFrame*)
+                0x0000ff64                CExceptionHandler::Get()
+                0x0000ff9c                ExceptionHandler
+                0x0000ffc4                _etext = .
 
-.glue_7         0x000100d4        0x0
- .glue_7        0x000100d4        0x0 linker stubs
+.glue_7         0x0000ffc4        0x0
+ .glue_7        0x0000ffc4        0x0 linker stubs
 
-.glue_7t        0x000100d4        0x0
- .glue_7t       0x000100d4        0x0 linker stubs
+.glue_7t        0x0000ffc4        0x0
+ .glue_7t       0x0000ffc4        0x0 linker stubs
 
-.vfp11_veneer   0x000100d4        0x0
- .vfp11_veneer  0x000100d4        0x0 linker stubs
+.vfp11_veneer   0x0000ffc4        0x0
+ .vfp11_veneer  0x0000ffc4        0x0 linker stubs
 
-.v4_bx          0x000100d4        0x0
- .v4_bx         0x000100d4        0x0 linker stubs
+.v4_bx          0x0000ffc4        0x0
+ .v4_bx         0x0000ffc4        0x0 linker stubs
 
-.iplt           0x000100d4        0x0
- .iplt          0x000100d4        0x0 ../Raspberry Metal Lib/startup.o
+.iplt           0x0000ffc4        0x0
+ .iplt          0x0000ffc4        0x0 ../Raspberry Metal Lib/startup.o
 
-.rodata         0x000100d8     0x1d5c
+.rodata         0x0000ffc8     0x1d5c
  *(.rodata*)
  .rodata.str1.4
-                0x000100d8       0x53 kernel.o
+                0x0000ffc8       0x53 kernel.o
                                  0x54 (size before relaxing)
- *fill*         0x0001012b        0x1 
+ *fill*         0x0001001b        0x1 
  .rodata.str1.4
-                0x0001012c       0x98 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- *fill*         0x000101c4        0x4 
- .rodata        0x000101c8       0x28 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
-                0x000101e0                vtable for CGPIOPin
+                0x0001001c       0x98 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ *fill*         0x000100b4        0x4 
+ .rodata        0x000100b8       0x28 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+                0x000100d0                vtable for CGPIOPin
  .rodata.str1.4
-                0x000101f0      0x29d ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+                0x000100e0      0x29d ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
                                 0x2a0 (size before relaxing)
- *fill*         0x0001048d        0x3 
+ *fill*         0x0001037d        0x3 
  .rodata.str1.4
-                0x00010490       0x94 ../Raspberry Metal Lib/libcircle.a(memory.o)
+                0x00010380       0x94 ../Raspberry Metal Lib/libcircle.a(memory.o)
  .rodata.str1.4
-                0x00010524       0x28 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
- .rodata        0x0001054c       0x38 ../Raspberry Metal Lib/libcircle.a(timer.o)
-                0x0001054c                CTimer::s_nDaysOfMonth
+                0x00010414       0x28 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .rodata        0x0001043c       0x38 ../Raspberry Metal Lib/libcircle.a(timer.o)
+                0x0001043c                CTimer::s_nDaysOfMonth
  .rodata.str1.4
-                0x00010584      0x158 ../Raspberry Metal Lib/libcircle.a(timer.o)
+                0x00010474      0x158 ../Raspberry Metal Lib/libcircle.a(timer.o)
                                 0x168 (size before relaxing)
  .rodata.str1.4
-                0x000106dc       0x62 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+                0x000105cc       0x62 ../Raspberry Metal Lib/libcircle.a(koptions.o)
                                  0x64 (size before relaxing)
- *fill*         0x0001073e        0x2 
+ *fill*         0x0001062e        0x2 
  .rodata.str1.4
-                0x00010740       0x3e ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+                0x00010630       0x3e ../Raspberry Metal Lib/libcircle.a(pagetable.o)
                                  0x40 (size before relaxing)
- *fill*         0x0001077e        0x2 
- .rodata        0x00010780       0x28 ../Raspberry Metal Lib/libcircle.a(screen.o)
-                0x00010780                vtable for CScreenDevice
+ *fill*         0x0001066e        0x2 
+ .rodata        0x00010670       0x28 ../Raspberry Metal Lib/libcircle.a(screen.o)
+                0x00010670                vtable for CScreenDevice
  .rodata.str1.4
-                0x000107a8        0x8 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .rodata        0x000107a8       0x20 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
-                0x000107a8                vtable for CScreenDeviceExt
+                0x00010698        0x8 ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .rodata        0x00010698       0x20 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+                0x00010698                vtable for CScreenDeviceExt
  .rodata.str1.4
-                0x000107c8       0x1d ../Raspberry Metal Lib/libcircle.a(assert.o)
+                0x000106b8       0x1d ../Raspberry Metal Lib/libcircle.a(assert.o)
                                  0x20 (size before relaxing)
- *fill*         0x000107e5        0x3 
- .rodata        0x000107e8      0xdf0 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ *fill*         0x000106d5        0x3 
+ .rodata        0x000106d8      0xdf0 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
  .rodata.str1.4
-                0x000115d8       0x2a ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+                0x000114c8       0x2a ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
                                  0x2c (size before relaxing)
- *fill*         0x00011602        0x2 
- .rodata        0x00011604        0x8 ../Raspberry Metal Lib/libcircle.a(debug.o)
+ *fill*         0x000114f2        0x2 
+ .rodata        0x000114f4        0x8 ../Raspberry Metal Lib/libcircle.a(debug.o)
  .rodata.str1.4
-                0x0001160c       0x8e ../Raspberry Metal Lib/libcircle.a(debug.o)
+                0x000114fc       0x8e ../Raspberry Metal Lib/libcircle.a(debug.o)
                                  0x90 (size before relaxing)
- *fill*         0x0001169a        0x2 
+ *fill*         0x0001158a        0x2 
  .rodata.str1.4
-                0x0001169c       0x70 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+                0x0001158c       0x70 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
  .rodata.str1.4
-                0x0001170c       0x3a ../Raspberry Metal Lib/libcircle.a(logger.o)
+                0x000115fc       0x3a ../Raspberry Metal Lib/libcircle.a(logger.o)
                                  0x40 (size before relaxing)
- *fill*         0x00011746        0x2 
- .rodata        0x00011748       0x10 ../Raspberry Metal Lib/libcircle.a(string.o)
-                0x00011748                vtable for CString
+ *fill*         0x00011636        0x2 
+ .rodata        0x00011638       0x10 ../Raspberry Metal Lib/libcircle.a(string.o)
+                0x00011638                vtable for CString
  .rodata.str1.4
-                0x00011758        0x9 ../Raspberry Metal Lib/libcircle.a(string.o)
+                0x00011648        0x9 ../Raspberry Metal Lib/libcircle.a(string.o)
                                  0x10 (size before relaxing)
- *fill*         0x00011761        0x3 
+ *fill*         0x00011651        0x3 
  .rodata.str1.4
-                0x00011764       0x5a ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+                0x00011654       0x5a ../Raspberry Metal Lib/libcircle.a(interrupt.o)
                                  0x6c (size before relaxing)
- *fill*         0x000117be        0x2 
+ *fill*         0x000116ae        0x2 
  .rodata.str1.4
-                0x000117c0       0x88 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+                0x000116b0       0x88 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
                                  0x9c (size before relaxing)
- .rodata        0x00011848       0x10 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
-                0x00011848                vtable for CVirtualGPIOPin
- .rodata        0x00011858      0x1ac ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .rodata        0x00011738       0x10 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+                0x00011738                vtable for CVirtualGPIOPin
+ .rodata        0x00011748      0x1ac ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
  .rodata.str1.4
-                0x00011a04       0xf3 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+                0x000118f4       0xf3 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
                                 0x110 (size before relaxing)
- *fill*         0x00011af7        0x1 
+ *fill*         0x000119e7        0x1 
  .rodata.str1.4
-                0x00011af8      0x176 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+                0x000119e8      0x176 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
                                 0x178 (size before relaxing)
- *fill*         0x00011c6e        0x2 
+ *fill*         0x00011b5e        0x2 
  .rodata.str1.4
-                0x00011c70       0xa8 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+                0x00011b60       0xa8 ../Raspberry Metal Lib/libcircle.a(alloc.o)
  .rodata.str1.4
-                0x00011d18       0x23 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+                0x00011c08       0x23 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
                                  0x24 (size before relaxing)
- *fill*         0x00011d3b        0x5 
- .rodata        0x00011d40       0x20 ../Raspberry Metal Lib/libcircle.a(device.o)
-                0x00011d40                vtable for CDevice
+ *fill*         0x00011c2b        0x5 
+ .rodata        0x00011c30       0x20 ../Raspberry Metal Lib/libcircle.a(device.o)
+                0x00011c30                vtable for CDevice
  .rodata.str1.4
-                0x00011d60        0xe ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+                0x00011c50        0xe ../Raspberry Metal Lib/libcircle.a(libhelper.o)
                                  0x14 (size before relaxing)
- *fill*         0x00011d6e        0x2 
- .rodata        0x00011d70        0x8 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+ *fill*         0x00011c5e        0x2 
+ .rodata        0x00011c60        0x8 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
  .rodata.str1.4
-                0x00011d78       0xbc ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+                0x00011c68       0xbc ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
                                  0xdc (size before relaxing)
-                0x00011e34                __init_start = .
+                0x00011d24                __init_start = .
 
-.rel.dyn        0x00011e34        0x0
- .rel.iplt      0x00011e34        0x0 ../Raspberry Metal Lib/startup.o
+.rel.dyn        0x00011d24        0x0
+ .rel.iplt      0x00011d24        0x0 ../Raspberry Metal Lib/startup.o
 
-.init_array     0x00011e34        0xc
+.init_array     0x00011d24        0xc
  *(.init_array*)
- .init_array    0x00011e34        0x4 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .init_array    0x00011e38        0x4 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .init_array    0x00011e3c        0x4 ../Raspberry Metal Lib/libcircle.a(alloc.o)
-                0x00011e40                __init_end = .
+ .init_array    0x00011d24        0x4 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .init_array    0x00011d28        0x4 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .init_array    0x00011d2c        0x4 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+                0x00011d30                __init_end = .
 
-.data           0x00011e40      0xac0
+.data           0x00011d30      0xac0
  *(.data*)
- .data          0x00011e40        0x0 ../Raspberry Metal Lib/startup.o
- .data          0x00011e40        0x0 main.o
- .data          0x00011e40      0x9d8 kernel.o
-                0x00011e40                sinTable
- .data          0x00012818        0x0 ../Raspberry Metal Lib/libcircle.a(actled.o)
- .data          0x00012818        0x0 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- .data          0x00012818        0x0 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .data          0x00012818        0x0 ../Raspberry Metal Lib/libcircle.a(memory.o)
- .data          0x00012818        0x0 ../Raspberry Metal Lib/libcircle.a(new.o)
- .data          0x00012818        0x0 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
- .data          0x00012818        0x0 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
- .data          0x00012818       0x30 ../Raspberry Metal Lib/libcircle.a(timer.o)
-                0x00012818                CTimer::s_pMonthName
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(util_fast.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(koptions.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(assert.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(debug.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(logger.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(string.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(delayloop.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
- .data          0x00012848        0x0 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .data          0x00012848       0x38 ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .data          0x00012880        0x0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .data          0x00012880        0x0 ../Raspberry Metal Lib/libcircle.a(libstub.o)
- .data          0x00012880        0x0 ../Raspberry Metal Lib/libcircle.a(util.o)
- .data          0x00012880       0x70 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .data          0x000128f0        0x0 ../Raspberry Metal Lib/libcircle.a(device.o)
- .data          0x000128f0        0x0 ../Raspberry Metal Lib/libcircle.a(exceptionstub.o)
- .data          0x000128f0        0x0 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .data          0x000128f0       0x10 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
-                0x000128f0                CExceptionHandler::s_pExceptionName
-                0x00012900                __bss_start = .
+ .data          0x00011d30        0x0 ../Raspberry Metal Lib/startup.o
+ .data          0x00011d30        0x0 main.o
+ .data          0x00011d30      0x9d8 kernel.o
+                0x00011d30                sinTable
+ .data          0x00012708        0x0 ../Raspberry Metal Lib/libcircle.a(actled.o)
+ .data          0x00012708        0x0 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .data          0x00012708        0x0 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .data          0x00012708        0x0 ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .data          0x00012708        0x0 ../Raspberry Metal Lib/libcircle.a(new.o)
+ .data          0x00012708        0x0 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .data          0x00012708        0x0 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+ .data          0x00012708       0x30 ../Raspberry Metal Lib/libcircle.a(timer.o)
+                0x00012708                CTimer::s_pMonthName
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(util_fast.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(assert.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(logger.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(string.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(delayloop.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .data          0x00012738        0x0 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .data          0x00012738       0x38 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .data          0x00012770        0x0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .data          0x00012770        0x0 ../Raspberry Metal Lib/libcircle.a(libstub.o)
+ .data          0x00012770       0x70 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .data          0x000127e0        0x0 ../Raspberry Metal Lib/libcircle.a(device.o)
+ .data          0x000127e0        0x0 ../Raspberry Metal Lib/libcircle.a(exceptionstub.o)
+ .data          0x000127e0        0x0 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .data          0x000127e0       0x10 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+                0x000127e0                CExceptionHandler::s_pExceptionName
+                0x000127f0                __bss_start = .
 
-.igot.plt       0x00012900        0x0
- .igot.plt      0x00012900        0x0 ../Raspberry Metal Lib/startup.o
+.igot.plt       0x000127f0        0x0
+ .igot.plt      0x000127f0        0x0 ../Raspberry Metal Lib/startup.o
 
-.bss            0x00012900       0x54
+.bss            0x000127f0    0x3e854
  *(.bss*)
- .bss           0x00012900        0x0 ../Raspberry Metal Lib/startup.o
- .bss           0x00012900        0x0 main.o
- .bss           0x00012900        0x0 kernel.o
- .bss           0x00012900        0x4 ../Raspberry Metal Lib/libcircle.a(actled.o)
-                0x00012900                CActLED::s_pThis
- .bss           0x00012904        0x0 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- .bss           0x00012904        0x4 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
-                0x00012904                CGPIOPin::s_SpinLock
- .bss           0x00012908        0x0 ../Raspberry Metal Lib/libcircle.a(memory.o)
- .bss           0x00012908        0x0 ../Raspberry Metal Lib/libcircle.a(new.o)
- .bss           0x00012908        0x8 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
- .bss           0x00012910        0x4 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
-                0x00012910                __dso_handle
- .bss           0x00012914        0x4 ../Raspberry Metal Lib/libcircle.a(timer.o)
-                0x00012914                CTimer::s_pThis
- .bss           0x00012918        0x0 ../Raspberry Metal Lib/libcircle.a(util_fast.o)
- .bss           0x00012918        0x4 ../Raspberry Metal Lib/libcircle.a(koptions.o)
-                0x00012918                CKernelOptions::s_pThis
- .bss           0x0001291c        0x0 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .bss           0x0001291c        0x0 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .bss           0x0001291c        0x0 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
- .bss           0x0001291c        0x0 ../Raspberry Metal Lib/libcircle.a(assert.o)
- .bss           0x0001291c        0x0 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .bss           0x0001291c        0x0 ../Raspberry Metal Lib/libcircle.a(debug.o)
- .bss           0x0001291c        0x4 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
-                0x0001291c                CDeviceNameService::s_This
- .bss           0x00012920        0x4 ../Raspberry Metal Lib/libcircle.a(logger.o)
-                0x00012920                CLogger::s_pThis
- .bss           0x00012924        0x0 ../Raspberry Metal Lib/libcircle.a(string.o)
- .bss           0x00012924        0x0 ../Raspberry Metal Lib/libcircle.a(delayloop.o)
- .bss           0x00012924        0x4 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
-                0x00012924                CInterruptSystem::s_pThis
- .bss           0x00012928        0x0 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .bss           0x00012928        0x8 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
-                0x00012928                CVirtualGPIOPin::s_nGPIOBaseAddress
-                0x0001292c                CVirtualGPIOPin::s_SpinLock
- .bss           0x00012930        0x4 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
-                0x00012930                CMachineInfo::s_pThis
- .bss           0x00012934        0x0 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .bss           0x00012934       0x1c ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .bss           0x00012950        0x0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .bss           0x00012950        0x0 ../Raspberry Metal Lib/libcircle.a(libstub.o)
- .bss           0x00012950        0x0 ../Raspberry Metal Lib/libcircle.a(util.o)
- .bss           0x00012950        0x0 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .bss           0x00012950        0x0 ../Raspberry Metal Lib/libcircle.a(device.o)
- .bss           0x00012950        0x0 ../Raspberry Metal Lib/libcircle.a(exceptionstub.o)
- .bss           0x00012950        0x0 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .bss           0x00012950        0x4 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
-                0x00012950                CExceptionHandler::s_pThis
-                0x00012954                _end = .
+ .bss           0x000127f0        0x0 ../Raspberry Metal Lib/startup.o
+ .bss           0x000127f0        0x0 main.o
+ .bss           0x000127f0    0x3e800 kernel.o
+                0x000127f0                bbb
+ .bss           0x00050ff0        0x4 ../Raspberry Metal Lib/libcircle.a(actled.o)
+                0x00050ff0                CActLED::s_pThis
+ .bss           0x00050ff4        0x0 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .bss           0x00050ff4        0x4 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+                0x00050ff4                CGPIOPin::s_SpinLock
+ .bss           0x00050ff8        0x0 ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .bss           0x00050ff8        0x0 ../Raspberry Metal Lib/libcircle.a(new.o)
+ .bss           0x00050ff8        0x8 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .bss           0x00051000        0x4 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+                0x00051000                __dso_handle
+ .bss           0x00051004        0x4 ../Raspberry Metal Lib/libcircle.a(timer.o)
+                0x00051004                CTimer::s_pThis
+ .bss           0x00051008        0x0 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .bss           0x00051008        0x0 ../Raspberry Metal Lib/libcircle.a(util_fast.o)
+ .bss           0x00051008        0x4 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+                0x00051008                CKernelOptions::s_pThis
+ .bss           0x0005100c        0x0 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .bss           0x0005100c        0x0 ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .bss           0x0005100c        0x0 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+ .bss           0x0005100c        0x0 ../Raspberry Metal Lib/libcircle.a(assert.o)
+ .bss           0x0005100c        0x0 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .bss           0x0005100c        0x0 ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .bss           0x0005100c        0x4 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+                0x0005100c                CDeviceNameService::s_This
+ .bss           0x00051010        0x4 ../Raspberry Metal Lib/libcircle.a(logger.o)
+                0x00051010                CLogger::s_pThis
+ .bss           0x00051014        0x0 ../Raspberry Metal Lib/libcircle.a(string.o)
+ .bss           0x00051014        0x0 ../Raspberry Metal Lib/libcircle.a(delayloop.o)
+ .bss           0x00051014        0x4 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+                0x00051014                CInterruptSystem::s_pThis
+ .bss           0x00051018        0x0 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .bss           0x00051018        0x8 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+                0x00051018                CVirtualGPIOPin::s_nGPIOBaseAddress
+                0x0005101c                CVirtualGPIOPin::s_SpinLock
+ .bss           0x00051020        0x4 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+                0x00051020                CMachineInfo::s_pThis
+ .bss           0x00051024        0x0 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .bss           0x00051024       0x1c ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .bss           0x00051040        0x0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .bss           0x00051040        0x0 ../Raspberry Metal Lib/libcircle.a(libstub.o)
+ .bss           0x00051040        0x0 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .bss           0x00051040        0x0 ../Raspberry Metal Lib/libcircle.a(device.o)
+ .bss           0x00051040        0x0 ../Raspberry Metal Lib/libcircle.a(exceptionstub.o)
+ .bss           0x00051040        0x0 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .bss           0x00051040        0x4 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+                0x00051040                CExceptionHandler::s_pThis
+                0x00051044                _end = .
 LOAD ../Raspberry Metal Lib/startup.o
 LOAD main.o
 LOAD kernel.o
@@ -722,47 +722,47 @@ OUTPUT(kernel.elf elf32-littlearm)
  .ARM.attributes
                 0x000001de       0x32 ../Raspberry Metal Lib/libcircle.a(timer.o)
  .ARM.attributes
-                0x00000210       0x1c ../Raspberry Metal Lib/libcircle.a(util_fast.o)
+                0x00000210       0x32 ../Raspberry Metal Lib/libcircle.a(util.o)
  .ARM.attributes
-                0x0000022c       0x32 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+                0x00000242       0x1c ../Raspberry Metal Lib/libcircle.a(util_fast.o)
  .ARM.attributes
-                0x0000025e       0x32 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+                0x0000025e       0x32 ../Raspberry Metal Lib/libcircle.a(koptions.o)
  .ARM.attributes
-                0x00000290       0x32 ../Raspberry Metal Lib/libcircle.a(screen.o)
+                0x00000290       0x32 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
  .ARM.attributes
-                0x000002c2       0x32 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+                0x000002c2       0x32 ../Raspberry Metal Lib/libcircle.a(screen.o)
  .ARM.attributes
-                0x000002f4       0x32 ../Raspberry Metal Lib/libcircle.a(assert.o)
+                0x000002f4       0x32 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
  .ARM.attributes
-                0x00000326       0x32 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+                0x00000326       0x32 ../Raspberry Metal Lib/libcircle.a(assert.o)
  .ARM.attributes
-                0x00000358       0x32 ../Raspberry Metal Lib/libcircle.a(debug.o)
+                0x00000358       0x32 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
  .ARM.attributes
-                0x0000038a       0x32 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+                0x0000038a       0x32 ../Raspberry Metal Lib/libcircle.a(debug.o)
  .ARM.attributes
-                0x000003bc       0x32 ../Raspberry Metal Lib/libcircle.a(logger.o)
+                0x000003bc       0x32 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
  .ARM.attributes
-                0x000003ee       0x32 ../Raspberry Metal Lib/libcircle.a(string.o)
+                0x000003ee       0x32 ../Raspberry Metal Lib/libcircle.a(logger.o)
  .ARM.attributes
-                0x00000420       0x1c ../Raspberry Metal Lib/libcircle.a(delayloop.o)
+                0x00000420       0x32 ../Raspberry Metal Lib/libcircle.a(string.o)
  .ARM.attributes
-                0x0000043c       0x32 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+                0x00000452       0x1c ../Raspberry Metal Lib/libcircle.a(delayloop.o)
  .ARM.attributes
-                0x0000046e       0x32 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+                0x0000046e       0x32 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
  .ARM.attributes
-                0x000004a0       0x32 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+                0x000004a0       0x32 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
  .ARM.attributes
-                0x000004d2       0x32 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+                0x000004d2       0x32 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
  .ARM.attributes
-                0x00000504       0x32 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+                0x00000504       0x32 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
  .ARM.attributes
-                0x00000536       0x32 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+                0x00000536       0x32 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
  .ARM.attributes
-                0x00000568       0x32 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+                0x00000568       0x32 ../Raspberry Metal Lib/libcircle.a(alloc.o)
  .ARM.attributes
-                0x0000059a       0x1c ../Raspberry Metal Lib/libcircle.a(libstub.o)
+                0x0000059a       0x32 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
  .ARM.attributes
-                0x000005b6       0x32 ../Raspberry Metal Lib/libcircle.a(util.o)
+                0x000005cc       0x1c ../Raspberry Metal Lib/libcircle.a(libstub.o)
  .ARM.attributes
                 0x000005e8       0x32 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
  .ARM.attributes
@@ -786,6 +786,7 @@ OUTPUT(kernel.elf elf32-littlearm)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(util.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(koptions.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(screen.o)
@@ -803,7 +804,6 @@ OUTPUT(kernel.elf elf32-littlearm)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(alloc.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(util.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(device.o)
  .comment       0x00000011       0x12 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
@@ -831,6 +831,8 @@ OUTPUT(kernel.elf elf32-littlearm)
                 0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
  .note.GNU-stack
                 0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .note.GNU-stack
+                0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(util.o)
  .note.GNU-stack
                 0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(koptions.o)
  .note.GNU-stack
@@ -866,8 +868,6 @@ OUTPUT(kernel.elf elf32-littlearm)
  .note.GNU-stack
                 0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
  .note.GNU-stack
-                0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(util.o)
- .note.GNU-stack
                 0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
  .note.GNU-stack
                 0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(device.o)
@@ -876,107 +876,107 @@ OUTPUT(kernel.elf elf32-littlearm)
  .note.GNU-stack
                 0x00000000        0x0 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
 
-.debug_info     0x00000000    0x1778b
+.debug_info     0x00000000    0x176b0
  .debug_info    0x00000000      0xa85 main.o
- .debug_info    0x00000a85     0x16c7 kernel.o
- .debug_info    0x0000214c      0xecb ../Raspberry Metal Lib/libcircle.a(actled.o)
- .debug_info    0x00003017      0x63c ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- .debug_info    0x00003653     0x2388 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .debug_info    0x000059db      0xb11 ../Raspberry Metal Lib/libcircle.a(memory.o)
- .debug_info    0x000064ec      0x148 ../Raspberry Metal Lib/libcircle.a(new.o)
- .debug_info    0x00006634      0x179 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
- .debug_info    0x000067ad      0x569 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
- .debug_info    0x00006d16     0x1d46 ../Raspberry Metal Lib/libcircle.a(timer.o)
- .debug_info    0x00008a5c      0xd69 ../Raspberry Metal Lib/libcircle.a(koptions.o)
- .debug_info    0x000097c5      0x469 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .debug_info    0x00009c2e     0x2756 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .debug_info    0x0000c384      0x3a9 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
- .debug_info    0x0000c72d      0xb26 ../Raspberry Metal Lib/libcircle.a(assert.o)
- .debug_info    0x0000d253      0x385 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .debug_info    0x0000d5d8      0xb5a ../Raspberry Metal Lib/libcircle.a(debug.o)
- .debug_info    0x0000e132      0x724 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
- .debug_info    0x0000e856     0x151e ../Raspberry Metal Lib/libcircle.a(logger.o)
- .debug_info    0x0000fd74     0x1107 ../Raspberry Metal Lib/libcircle.a(string.o)
- .debug_info    0x00010e7b      0x868 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
- .debug_info    0x000116e3      0x8ba ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .debug_info    0x00011f9d      0x833 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .debug_info    0x000127d0      0xb83 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
- .debug_info    0x00013353      0x77e ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .debug_info    0x00013ad1      0x75b ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .debug_info    0x0001422c      0xd39 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .debug_info    0x00014f65      0x5e6 ../Raspberry Metal Lib/libcircle.a(util.o)
- .debug_info    0x0001554b      0xcc1 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .debug_info    0x0001620c      0x2f0 ../Raspberry Metal Lib/libcircle.a(device.o)
- .debug_info    0x000164fc      0x37f ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .debug_info    0x0001687b      0xf10 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+ .debug_info    0x00000a85     0x15e7 kernel.o
+ .debug_info    0x0000206c      0xecb ../Raspberry Metal Lib/libcircle.a(actled.o)
+ .debug_info    0x00002f37      0x63c ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .debug_info    0x00003573     0x2388 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .debug_info    0x000058fb      0xb11 ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .debug_info    0x0000640c      0x148 ../Raspberry Metal Lib/libcircle.a(new.o)
+ .debug_info    0x00006554      0x179 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .debug_info    0x000066cd      0x569 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+ .debug_info    0x00006c36     0x1d46 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .debug_info    0x0000897c      0x5e6 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .debug_info    0x00008f62      0xd69 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+ .debug_info    0x00009ccb      0x469 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .debug_info    0x0000a134     0x2757 ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .debug_info    0x0000c88b      0x3a9 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+ .debug_info    0x0000cc34      0xb26 ../Raspberry Metal Lib/libcircle.a(assert.o)
+ .debug_info    0x0000d75a      0x385 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .debug_info    0x0000dadf      0xb5a ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .debug_info    0x0000e639      0x724 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+ .debug_info    0x0000ed5d     0x151e ../Raspberry Metal Lib/libcircle.a(logger.o)
+ .debug_info    0x0001027b     0x1107 ../Raspberry Metal Lib/libcircle.a(string.o)
+ .debug_info    0x00011382      0x868 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+ .debug_info    0x00011bea      0x8ba ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .debug_info    0x000124a4      0x833 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .debug_info    0x00012cd7      0xb83 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .debug_info    0x0001385a      0x77e ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .debug_info    0x00013fd8      0x75b ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .debug_info    0x00014733      0xd39 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .debug_info    0x0001546c      0xcc5 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .debug_info    0x00016131      0x2f0 ../Raspberry Metal Lib/libcircle.a(device.o)
+ .debug_info    0x00016421      0x37f ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .debug_info    0x000167a0      0xf10 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
 
-.debug_abbrev   0x00000000     0x61a6
+.debug_abbrev   0x00000000     0x61b7
  .debug_abbrev  0x00000000      0x2d2 main.o
- .debug_abbrev  0x000002d2      0x4ec kernel.o
- .debug_abbrev  0x000007be      0x3c9 ../Raspberry Metal Lib/libcircle.a(actled.o)
- .debug_abbrev  0x00000b87      0x246 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- .debug_abbrev  0x00000dcd      0x557 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .debug_abbrev  0x00001324      0x2c7 ../Raspberry Metal Lib/libcircle.a(memory.o)
- .debug_abbrev  0x000015eb       0xae ../Raspberry Metal Lib/libcircle.a(new.o)
- .debug_abbrev  0x00001699       0xee ../Raspberry Metal Lib/libcircle.a(synchronize.o)
- .debug_abbrev  0x00001787      0x268 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
- .debug_abbrev  0x000019ef      0x5d4 ../Raspberry Metal Lib/libcircle.a(timer.o)
- .debug_abbrev  0x00001fc3      0x3d3 ../Raspberry Metal Lib/libcircle.a(koptions.o)
- .debug_abbrev  0x00002396      0x20d ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .debug_abbrev  0x000025a3      0x520 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .debug_abbrev  0x00002ac3      0x1fe ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
- .debug_abbrev  0x00002cc1      0x2f3 ../Raspberry Metal Lib/libcircle.a(assert.o)
- .debug_abbrev  0x00002fb4      0x1ad ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .debug_abbrev  0x00003161      0x306 ../Raspberry Metal Lib/libcircle.a(debug.o)
- .debug_abbrev  0x00003467      0x2ce ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
- .debug_abbrev  0x00003735      0x44a ../Raspberry Metal Lib/libcircle.a(logger.o)
- .debug_abbrev  0x00003b7f      0x415 ../Raspberry Metal Lib/libcircle.a(string.o)
- .debug_abbrev  0x00003f94      0x377 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
- .debug_abbrev  0x0000430b      0x322 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .debug_abbrev  0x0000462d      0x374 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .debug_abbrev  0x000049a1      0x34e ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
- .debug_abbrev  0x00004cef      0x1e9 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .debug_abbrev  0x00004ed8      0x2a9 ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .debug_abbrev  0x00005181      0x3a0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .debug_abbrev  0x00005521      0x231 ../Raspberry Metal Lib/libcircle.a(util.o)
- .debug_abbrev  0x00005752      0x342 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .debug_abbrev  0x00005a94      0x1b1 ../Raspberry Metal Lib/libcircle.a(device.o)
- .debug_abbrev  0x00005c45      0x197 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .debug_abbrev  0x00005ddc      0x3ca ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+ .debug_abbrev  0x000002d2      0x4f9 kernel.o
+ .debug_abbrev  0x000007cb      0x3c9 ../Raspberry Metal Lib/libcircle.a(actled.o)
+ .debug_abbrev  0x00000b94      0x246 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .debug_abbrev  0x00000dda      0x557 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .debug_abbrev  0x00001331      0x2c7 ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .debug_abbrev  0x000015f8       0xae ../Raspberry Metal Lib/libcircle.a(new.o)
+ .debug_abbrev  0x000016a6       0xee ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .debug_abbrev  0x00001794      0x268 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+ .debug_abbrev  0x000019fc      0x5d4 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .debug_abbrev  0x00001fd0      0x231 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .debug_abbrev  0x00002201      0x3d3 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+ .debug_abbrev  0x000025d4      0x20d ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .debug_abbrev  0x000027e1      0x522 ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .debug_abbrev  0x00002d03      0x1fe ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+ .debug_abbrev  0x00002f01      0x2f3 ../Raspberry Metal Lib/libcircle.a(assert.o)
+ .debug_abbrev  0x000031f4      0x1ad ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .debug_abbrev  0x000033a1      0x306 ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .debug_abbrev  0x000036a7      0x2ce ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+ .debug_abbrev  0x00003975      0x44a ../Raspberry Metal Lib/libcircle.a(logger.o)
+ .debug_abbrev  0x00003dbf      0x415 ../Raspberry Metal Lib/libcircle.a(string.o)
+ .debug_abbrev  0x000041d4      0x377 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+ .debug_abbrev  0x0000454b      0x322 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .debug_abbrev  0x0000486d      0x374 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .debug_abbrev  0x00004be1      0x34e ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .debug_abbrev  0x00004f2f      0x1e9 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .debug_abbrev  0x00005118      0x2a9 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .debug_abbrev  0x000053c1      0x3a0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .debug_abbrev  0x00005761      0x344 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .debug_abbrev  0x00005aa5      0x1b1 ../Raspberry Metal Lib/libcircle.a(device.o)
+ .debug_abbrev  0x00005c56      0x197 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .debug_abbrev  0x00005ded      0x3ca ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
 
-.debug_loc      0x00000000     0x96cf
+.debug_loc      0x00000000     0x9689
  .debug_loc     0x00000000       0x1e main.o
- .debug_loc     0x0000001e     0x1036 kernel.o
- .debug_loc     0x00001054      0x27d ../Raspberry Metal Lib/libcircle.a(actled.o)
- .debug_loc     0x000012d1      0x22c ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- .debug_loc     0x000014fd      0xf58 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .debug_loc     0x00002455      0x262 ../Raspberry Metal Lib/libcircle.a(memory.o)
- .debug_loc     0x000026b7       0x84 ../Raspberry Metal Lib/libcircle.a(new.o)
- .debug_loc     0x0000273b       0x6a ../Raspberry Metal Lib/libcircle.a(synchronize.o)
- .debug_loc     0x000027a5       0x62 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
- .debug_loc     0x00002807     0x1041 ../Raspberry Metal Lib/libcircle.a(timer.o)
- .debug_loc     0x00003848      0x374 ../Raspberry Metal Lib/libcircle.a(koptions.o)
- .debug_loc     0x00003bbc      0x171 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .debug_loc     0x00003d2d     0x16f7 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .debug_loc     0x00005424      0x15f ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
- .debug_loc     0x00005583       0x84 ../Raspberry Metal Lib/libcircle.a(assert.o)
- .debug_loc     0x00005607      0x1b4 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .debug_loc     0x000057bb      0x16c ../Raspberry Metal Lib/libcircle.a(debug.o)
- .debug_loc     0x00005927      0x36f ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
- .debug_loc     0x00005c96      0x50b ../Raspberry Metal Lib/libcircle.a(logger.o)
- .debug_loc     0x000061a1      0xd8a ../Raspberry Metal Lib/libcircle.a(string.o)
- .debug_loc     0x00006f2b      0x3bf ../Raspberry Metal Lib/libcircle.a(interrupt.o)
- .debug_loc     0x000072ea      0x37e ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .debug_loc     0x00007668      0x250 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .debug_loc     0x000078b8      0x34a ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
- .debug_loc     0x00007c02      0x33f ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .debug_loc     0x00007f41      0x362 ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .debug_loc     0x000082a3      0x1aa ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .debug_loc     0x0000844d      0x95e ../Raspberry Metal Lib/libcircle.a(util.o)
- .debug_loc     0x00008dab      0x39b ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .debug_loc     0x00009146       0x81 ../Raspberry Metal Lib/libcircle.a(device.o)
- .debug_loc     0x000091c7      0x2cd ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .debug_loc     0x00009494      0x23b ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+ .debug_loc     0x0000001e     0x103a kernel.o
+ .debug_loc     0x00001058      0x27d ../Raspberry Metal Lib/libcircle.a(actled.o)
+ .debug_loc     0x000012d5      0x22c ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .debug_loc     0x00001501      0xf58 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .debug_loc     0x00002459      0x262 ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .debug_loc     0x000026bb       0x84 ../Raspberry Metal Lib/libcircle.a(new.o)
+ .debug_loc     0x0000273f       0x6a ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .debug_loc     0x000027a9       0x62 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+ .debug_loc     0x0000280b     0x1041 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .debug_loc     0x0000384c      0x95e ../Raspberry Metal Lib/libcircle.a(util.o)
+ .debug_loc     0x000041aa      0x374 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+ .debug_loc     0x0000451e      0x171 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .debug_loc     0x0000468f     0x16ad ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .debug_loc     0x00005d3c      0x15f ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+ .debug_loc     0x00005e9b       0x84 ../Raspberry Metal Lib/libcircle.a(assert.o)
+ .debug_loc     0x00005f1f      0x1b4 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .debug_loc     0x000060d3      0x16c ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .debug_loc     0x0000623f      0x36f ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+ .debug_loc     0x000065ae      0x50b ../Raspberry Metal Lib/libcircle.a(logger.o)
+ .debug_loc     0x00006ab9      0xd8a ../Raspberry Metal Lib/libcircle.a(string.o)
+ .debug_loc     0x00007843      0x3bf ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+ .debug_loc     0x00007c02      0x37e ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .debug_loc     0x00007f80      0x250 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .debug_loc     0x000081d0      0x34a ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .debug_loc     0x0000851a      0x33f ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .debug_loc     0x00008859      0x362 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .debug_loc     0x00008bbb      0x1aa ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .debug_loc     0x00008d65      0x39b ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .debug_loc     0x00009100       0x81 ../Raspberry Metal Lib/libcircle.a(device.o)
+ .debug_loc     0x00009181      0x2cd ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .debug_loc     0x0000944e      0x23b ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
 
 .debug_aranges  0x00000000      0x418
  .debug_aranges
@@ -1000,41 +1000,41 @@ OUTPUT(kernel.elf elf32-littlearm)
  .debug_aranges
                 0x00000128       0x20 ../Raspberry Metal Lib/libcircle.a(timer.o)
  .debug_aranges
-                0x00000148       0x20 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+                0x00000148       0x20 ../Raspberry Metal Lib/libcircle.a(util.o)
  .debug_aranges
-                0x00000168       0x20 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+                0x00000168       0x20 ../Raspberry Metal Lib/libcircle.a(koptions.o)
  .debug_aranges
-                0x00000188       0x20 ../Raspberry Metal Lib/libcircle.a(screen.o)
+                0x00000188       0x20 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
  .debug_aranges
-                0x000001a8       0x20 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+                0x000001a8       0x20 ../Raspberry Metal Lib/libcircle.a(screen.o)
  .debug_aranges
-                0x000001c8       0x20 ../Raspberry Metal Lib/libcircle.a(assert.o)
+                0x000001c8       0x20 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
  .debug_aranges
-                0x000001e8       0x20 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+                0x000001e8       0x20 ../Raspberry Metal Lib/libcircle.a(assert.o)
  .debug_aranges
-                0x00000208       0x20 ../Raspberry Metal Lib/libcircle.a(debug.o)
+                0x00000208       0x20 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
  .debug_aranges
-                0x00000228       0x20 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+                0x00000228       0x20 ../Raspberry Metal Lib/libcircle.a(debug.o)
  .debug_aranges
-                0x00000248       0x20 ../Raspberry Metal Lib/libcircle.a(logger.o)
+                0x00000248       0x20 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
  .debug_aranges
-                0x00000268       0x20 ../Raspberry Metal Lib/libcircle.a(string.o)
+                0x00000268       0x20 ../Raspberry Metal Lib/libcircle.a(logger.o)
  .debug_aranges
-                0x00000288       0x20 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+                0x00000288       0x20 ../Raspberry Metal Lib/libcircle.a(string.o)
  .debug_aranges
-                0x000002a8       0x20 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+                0x000002a8       0x20 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
  .debug_aranges
-                0x000002c8       0x28 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+                0x000002c8       0x20 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
  .debug_aranges
-                0x000002f0       0x20 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+                0x000002e8       0x28 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
  .debug_aranges
-                0x00000310       0x20 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+                0x00000310       0x20 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
  .debug_aranges
-                0x00000330       0x28 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+                0x00000330       0x20 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
  .debug_aranges
-                0x00000358       0x20 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+                0x00000350       0x28 ../Raspberry Metal Lib/libcircle.a(alloc.o)
  .debug_aranges
-                0x00000378       0x20 ../Raspberry Metal Lib/libcircle.a(util.o)
+                0x00000378       0x20 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
  .debug_aranges
                 0x00000398       0x20 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
  .debug_aranges
@@ -1044,126 +1044,126 @@ OUTPUT(kernel.elf elf32-littlearm)
  .debug_aranges
                 0x000003f8       0x20 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
 
-.debug_ranges   0x00000000     0x1888
+.debug_ranges   0x00000000     0x1880
  .debug_ranges  0x00000000       0x28 main.o
- .debug_ranges  0x00000028      0x138 kernel.o
- .debug_ranges  0x00000160       0x68 ../Raspberry Metal Lib/libcircle.a(actled.o)
- .debug_ranges  0x000001c8       0x40 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- .debug_ranges  0x00000208      0x3b0 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .debug_ranges  0x000005b8       0x78 ../Raspberry Metal Lib/libcircle.a(memory.o)
- .debug_ranges  0x00000630       0x30 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
- .debug_ranges  0x00000660      0x3f8 ../Raspberry Metal Lib/libcircle.a(timer.o)
- .debug_ranges  0x00000a58       0xa0 ../Raspberry Metal Lib/libcircle.a(koptions.o)
- .debug_ranges  0x00000af8       0x48 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .debug_ranges  0x00000b40      0x3b8 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .debug_ranges  0x00000ef8       0x20 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .debug_ranges  0x00000f18       0x68 ../Raspberry Metal Lib/libcircle.a(debug.o)
- .debug_ranges  0x00000f80       0xf0 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
- .debug_ranges  0x00001070       0xf8 ../Raspberry Metal Lib/libcircle.a(logger.o)
- .debug_ranges  0x00001168      0x108 ../Raspberry Metal Lib/libcircle.a(string.o)
- .debug_ranges  0x00001270       0x70 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
- .debug_ranges  0x000012e0       0xd8 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .debug_ranges  0x000013b8       0x78 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .debug_ranges  0x00001430       0xa0 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
- .debug_ranges  0x000014d0       0x30 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .debug_ranges  0x00001500      0x198 ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .debug_ranges  0x00001698       0xb0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .debug_ranges  0x00001748       0x58 ../Raspberry Metal Lib/libcircle.a(util.o)
- .debug_ranges  0x000017a0       0x90 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .debug_ranges  0x00001830       0x20 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .debug_ranges  0x00001850       0x38 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+ .debug_ranges  0x00000028      0x148 kernel.o
+ .debug_ranges  0x00000170       0x68 ../Raspberry Metal Lib/libcircle.a(actled.o)
+ .debug_ranges  0x000001d8       0x40 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .debug_ranges  0x00000218      0x3b0 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .debug_ranges  0x000005c8       0x78 ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .debug_ranges  0x00000640       0x30 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+ .debug_ranges  0x00000670      0x3f8 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .debug_ranges  0x00000a68       0x58 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .debug_ranges  0x00000ac0       0xa0 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+ .debug_ranges  0x00000b60       0x48 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .debug_ranges  0x00000ba8      0x3b8 ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .debug_ranges  0x00000f60       0x20 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .debug_ranges  0x00000f80       0x68 ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .debug_ranges  0x00000fe8       0xf0 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+ .debug_ranges  0x000010d8       0xf8 ../Raspberry Metal Lib/libcircle.a(logger.o)
+ .debug_ranges  0x000011d0      0x108 ../Raspberry Metal Lib/libcircle.a(string.o)
+ .debug_ranges  0x000012d8       0x70 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+ .debug_ranges  0x00001348       0xd8 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .debug_ranges  0x00001420       0x78 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .debug_ranges  0x00001498       0xa0 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .debug_ranges  0x00001538       0x30 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .debug_ranges  0x00001568      0x198 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .debug_ranges  0x00001700       0xb0 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .debug_ranges  0x000017b0       0x78 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .debug_ranges  0x00001828       0x20 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .debug_ranges  0x00001848       0x38 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
 
-.debug_line     0x00000000     0x3660
+.debug_line     0x00000000     0x3646
  .debug_line    0x00000000      0x118 main.o
- .debug_line    0x00000118      0x2e5 kernel.o
- .debug_line    0x000003fd      0x13c ../Raspberry Metal Lib/libcircle.a(actled.o)
- .debug_line    0x00000539       0xf6 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
- .debug_line    0x0000062f      0x624 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
- .debug_line    0x00000c53      0x18a ../Raspberry Metal Lib/libcircle.a(memory.o)
- .debug_line    0x00000ddd       0x52 ../Raspberry Metal Lib/libcircle.a(new.o)
- .debug_line    0x00000e2f       0x85 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
- .debug_line    0x00000eb4       0xc3 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
- .debug_line    0x00000f77      0x4d3 ../Raspberry Metal Lib/libcircle.a(timer.o)
- .debug_line    0x0000144a      0x1a7 ../Raspberry Metal Lib/libcircle.a(koptions.o)
- .debug_line    0x000015f1      0x11f ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .debug_line    0x00001710      0x541 ../Raspberry Metal Lib/libcircle.a(screen.o)
- .debug_line    0x00001c51       0x9a ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
- .debug_line    0x00001ceb       0xc8 ../Raspberry Metal Lib/libcircle.a(assert.o)
- .debug_line    0x00001db3       0xa6 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .debug_line    0x00001e59       0xd7 ../Raspberry Metal Lib/libcircle.a(debug.o)
- .debug_line    0x00001f30      0x1a5 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
- .debug_line    0x000020d5      0x21e ../Raspberry Metal Lib/libcircle.a(logger.o)
- .debug_line    0x000022f3      0x2bf ../Raspberry Metal Lib/libcircle.a(string.o)
- .debug_line    0x000025b2      0x1d9 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
- .debug_line    0x0000278b      0x17b ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .debug_line    0x00002906      0x148 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .debug_line    0x00002a4e      0x194 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
- .debug_line    0x00002be2      0x162 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .debug_line    0x00002d44      0x222 ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .debug_line    0x00002f66      0x1a3 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .debug_line    0x00003109      0x151 ../Raspberry Metal Lib/libcircle.a(util.o)
- .debug_line    0x0000325a      0x16d ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .debug_line    0x000033c7       0x60 ../Raspberry Metal Lib/libcircle.a(device.o)
- .debug_line    0x00003427       0xc9 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .debug_line    0x000034f0      0x170 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+ .debug_line    0x00000118      0x2e9 kernel.o
+ .debug_line    0x00000401      0x13c ../Raspberry Metal Lib/libcircle.a(actled.o)
+ .debug_line    0x0000053d       0xf6 ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .debug_line    0x00000633      0x624 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .debug_line    0x00000c57      0x18a ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .debug_line    0x00000de1       0x52 ../Raspberry Metal Lib/libcircle.a(new.o)
+ .debug_line    0x00000e33       0x85 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .debug_line    0x00000eb8       0xc3 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+ .debug_line    0x00000f7b      0x4d3 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .debug_line    0x0000144e      0x151 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .debug_line    0x0000159f      0x1a7 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+ .debug_line    0x00001746      0x11f ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .debug_line    0x00001865      0x528 ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .debug_line    0x00001d8d       0x9a ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+ .debug_line    0x00001e27       0xc8 ../Raspberry Metal Lib/libcircle.a(assert.o)
+ .debug_line    0x00001eef       0xa6 ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .debug_line    0x00001f95       0xd7 ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .debug_line    0x0000206c      0x1a5 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+ .debug_line    0x00002211      0x21e ../Raspberry Metal Lib/libcircle.a(logger.o)
+ .debug_line    0x0000242f      0x2bf ../Raspberry Metal Lib/libcircle.a(string.o)
+ .debug_line    0x000026ee      0x1d9 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+ .debug_line    0x000028c7      0x17b ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .debug_line    0x00002a42      0x148 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .debug_line    0x00002b8a      0x194 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .debug_line    0x00002d1e      0x162 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .debug_line    0x00002e80      0x222 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .debug_line    0x000030a2      0x1a3 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .debug_line    0x00003245      0x168 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .debug_line    0x000033ad       0x60 ../Raspberry Metal Lib/libcircle.a(device.o)
+ .debug_line    0x0000340d       0xc9 ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .debug_line    0x000034d6      0x170 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
 
 .debug_str      0x00000000     0x3fcb
  .debug_str     0x00000000      0x943 main.o
                                 0xa15 (size before relaxing)
- .debug_str     0x00000943      0x181 kernel.o
-                                0xb8f (size before relaxing)
- .debug_str     0x00000ac4      0x95b ../Raspberry Metal Lib/libcircle.a(actled.o)
+ .debug_str     0x00000943      0x188 kernel.o
+                                0xb96 (size before relaxing)
+ .debug_str     0x00000acb      0x95b ../Raspberry Metal Lib/libcircle.a(actled.o)
                                 0xc69 (size before relaxing)
- .debug_str     0x0000141f       0xbd ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
+ .debug_str     0x00001426       0xbd ../Raspberry Metal Lib/libcircle.a(bcmpropertytags.o)
                                 0x422 (size before relaxing)
- .debug_str     0x000014dc      0xb44 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
+ .debug_str     0x000014e3      0xb44 ../Raspberry Metal Lib/libcircle.a(gpiopin.o)
                                0x15ad (size before relaxing)
- .debug_str     0x00002020       0xa2 ../Raspberry Metal Lib/libcircle.a(memory.o)
+ .debug_str     0x00002027       0xa2 ../Raspberry Metal Lib/libcircle.a(memory.o)
                                 0x68d (size before relaxing)
- .debug_str     0x000020c2       0x46 ../Raspberry Metal Lib/libcircle.a(new.o)
+ .debug_str     0x000020c9       0x46 ../Raspberry Metal Lib/libcircle.a(new.o)
                                 0x191 (size before relaxing)
- .debug_str     0x00002108       0x7c ../Raspberry Metal Lib/libcircle.a(synchronize.o)
+ .debug_str     0x0000210f       0x7c ../Raspberry Metal Lib/libcircle.a(synchronize.o)
                                 0x21f (size before relaxing)
- .debug_str     0x00002184       0x75 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
+ .debug_str     0x0000218b       0x75 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
                                 0x673 (size before relaxing)
- .debug_str     0x000021f9      0x2d1 ../Raspberry Metal Lib/libcircle.a(timer.o)
+ .debug_str     0x00002200      0x2d1 ../Raspberry Metal Lib/libcircle.a(timer.o)
                                 0xdb0 (size before relaxing)
- .debug_str     0x000024ca       0x99 ../Raspberry Metal Lib/libcircle.a(koptions.o)
-                                0x715 (size before relaxing)
- .debug_str     0x00002563       0x6c ../Raspberry Metal Lib/libcircle.a(pagetable.o)
-                                0x2db (size before relaxing)
- .debug_str     0x000025cf      0xbe3 ../Raspberry Metal Lib/libcircle.a(screen.o)
-                               0x113e (size before relaxing)
- .debug_str     0x000031b2       0xc6 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
-                                0x2ba (size before relaxing)
- .debug_str     0x00003278       0x54 ../Raspberry Metal Lib/libcircle.a(assert.o)
-                                0xb9c (size before relaxing)
- .debug_str     0x000032cc       0x6d ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
-                                0x30c (size before relaxing)
- .debug_str     0x00003339       0x63 ../Raspberry Metal Lib/libcircle.a(debug.o)
-                                0xb7e (size before relaxing)
- .debug_str     0x0000339c       0x83 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
-                                0x3fe (size before relaxing)
- .debug_str     0x0000341f       0xd2 ../Raspberry Metal Lib/libcircle.a(logger.o)
-                               0x110f (size before relaxing)
- .debug_str     0x000034f1      0x21a ../Raspberry Metal Lib/libcircle.a(string.o)
-                                0x581 (size before relaxing)
- .debug_str     0x0000370b       0xc2 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
-                                0x493 (size before relaxing)
- .debug_str     0x000037cd       0x5b ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
-                                0x5b6 (size before relaxing)
- .debug_str     0x00003828      0x130 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
-                                0x5bc (size before relaxing)
- .debug_str     0x00003958       0xaf ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
-                                0x8bd (size before relaxing)
- .debug_str     0x00003a07       0x48 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
-                                0x31c (size before relaxing)
- .debug_str     0x00003a4f      0x12a ../Raspberry Metal Lib/libcircle.a(alloc.o)
-                                0x3d5 (size before relaxing)
- .debug_str     0x00003b79       0x3f ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
-                                0xad7 (size before relaxing)
- .debug_str     0x00003bb8       0xa6 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .debug_str     0x000024d1       0xf9 ../Raspberry Metal Lib/libcircle.a(util.o)
                                 0x2ab (size before relaxing)
+ .debug_str     0x000025ca       0x75 ../Raspberry Metal Lib/libcircle.a(koptions.o)
+                                0x715 (size before relaxing)
+ .debug_str     0x0000263f       0x6c ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+                                0x2db (size before relaxing)
+ .debug_str     0x000026ab      0xbdc ../Raspberry Metal Lib/libcircle.a(screen.o)
+                               0x113e (size before relaxing)
+ .debug_str     0x00003287       0xc0 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+                                0x2ba (size before relaxing)
+ .debug_str     0x00003347       0x54 ../Raspberry Metal Lib/libcircle.a(assert.o)
+                                0xb9c (size before relaxing)
+ .debug_str     0x0000339b       0x6d ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+                                0x30c (size before relaxing)
+ .debug_str     0x00003408       0x63 ../Raspberry Metal Lib/libcircle.a(debug.o)
+                                0xb7e (size before relaxing)
+ .debug_str     0x0000346b       0x74 ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+                                0x3fe (size before relaxing)
+ .debug_str     0x000034df       0xd2 ../Raspberry Metal Lib/libcircle.a(logger.o)
+                               0x110f (size before relaxing)
+ .debug_str     0x000035b1      0x200 ../Raspberry Metal Lib/libcircle.a(string.o)
+                                0x581 (size before relaxing)
+ .debug_str     0x000037b1       0xc2 ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+                                0x493 (size before relaxing)
+ .debug_str     0x00003873       0x5b ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+                                0x5b6 (size before relaxing)
+ .debug_str     0x000038ce      0x130 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+                                0x5bc (size before relaxing)
+ .debug_str     0x000039fe       0xaf ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+                                0x8bd (size before relaxing)
+ .debug_str     0x00003aad       0x48 ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+                                0x31c (size before relaxing)
+ .debug_str     0x00003af5      0x12a ../Raspberry Metal Lib/libcircle.a(alloc.o)
+                                0x3d5 (size before relaxing)
+ .debug_str     0x00003c1f       0x3f ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+                                0xad7 (size before relaxing)
  .debug_str     0x00003c5e      0x120 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
                                 0x850 (size before relaxing)
  .debug_str     0x00003d7e       0xa0 ../Raspberry Metal Lib/libcircle.a(device.o)
@@ -1173,7 +1173,7 @@ OUTPUT(kernel.elf elf32-littlearm)
  .debug_str     0x00003f19       0xb2 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
                                 0xd31 (size before relaxing)
 
-.debug_frame    0x00000000     0x1f6c
+.debug_frame    0x00000000     0x1f5c
  .debug_frame   0x00000000       0x34 main.o
  .debug_frame   0x00000034      0x11c kernel.o
  .debug_frame   0x00000150       0x98 ../Raspberry Metal Lib/libcircle.a(actled.o)
@@ -1184,25 +1184,25 @@ OUTPUT(kernel.elf elf32-littlearm)
  .debug_frame   0x00000604       0x58 ../Raspberry Metal Lib/libcircle.a(synchronize.o)
  .debug_frame   0x0000065c       0x60 ../Raspberry Metal Lib/libcircle.a(sysinit.o)
  .debug_frame   0x000006bc      0x288 ../Raspberry Metal Lib/libcircle.a(timer.o)
- .debug_frame   0x00000944      0x11c ../Raspberry Metal Lib/libcircle.a(koptions.o)
- .debug_frame   0x00000a60       0x70 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
- .debug_frame   0x00000ad0      0x4cc ../Raspberry Metal Lib/libcircle.a(screen.o)
- .debug_frame   0x00000f9c       0x68 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
- .debug_frame   0x00001004       0x34 ../Raspberry Metal Lib/libcircle.a(assert.o)
- .debug_frame   0x00001038       0x7c ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
- .debug_frame   0x000010b4       0x68 ../Raspberry Metal Lib/libcircle.a(debug.o)
- .debug_frame   0x0000111c       0xac ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
- .debug_frame   0x000011c8      0x10c ../Raspberry Metal Lib/libcircle.a(logger.o)
- .debug_frame   0x000012d4      0x238 ../Raspberry Metal Lib/libcircle.a(string.o)
- .debug_frame   0x0000150c      0x13c ../Raspberry Metal Lib/libcircle.a(interrupt.o)
- .debug_frame   0x00001648       0xd4 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
- .debug_frame   0x0000171c       0xa8 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
- .debug_frame   0x000017c4      0x130 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
- .debug_frame   0x000018f4       0xfc ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
- .debug_frame   0x000019f0       0xc4 ../Raspberry Metal Lib/libcircle.a(alloc.o)
- .debug_frame   0x00001ab4       0x90 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
- .debug_frame   0x00001b44      0x128 ../Raspberry Metal Lib/libcircle.a(util.o)
- .debug_frame   0x00001c6c      0x168 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
- .debug_frame   0x00001dd4       0x78 ../Raspberry Metal Lib/libcircle.a(device.o)
- .debug_frame   0x00001e4c       0x5c ../Raspberry Metal Lib/libcircle.a(libhelper.o)
- .debug_frame   0x00001ea8       0xc4 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)
+ .debug_frame   0x00000944      0x128 ../Raspberry Metal Lib/libcircle.a(util.o)
+ .debug_frame   0x00000a6c      0x11c ../Raspberry Metal Lib/libcircle.a(koptions.o)
+ .debug_frame   0x00000b88       0x70 ../Raspberry Metal Lib/libcircle.a(pagetable.o)
+ .debug_frame   0x00000bf8      0x4bc ../Raspberry Metal Lib/libcircle.a(screen.o)
+ .debug_frame   0x000010b4       0x68 ../Raspberry Metal Lib/libcircle.a(ScreenDeviceExt.o)
+ .debug_frame   0x0000111c       0x34 ../Raspberry Metal Lib/libcircle.a(assert.o)
+ .debug_frame   0x00001150       0x7c ../Raspberry Metal Lib/libcircle.a(chargenerator.o)
+ .debug_frame   0x000011cc       0x68 ../Raspberry Metal Lib/libcircle.a(debug.o)
+ .debug_frame   0x00001234       0xac ../Raspberry Metal Lib/libcircle.a(devicenameservice.o)
+ .debug_frame   0x000012e0      0x10c ../Raspberry Metal Lib/libcircle.a(logger.o)
+ .debug_frame   0x000013ec      0x238 ../Raspberry Metal Lib/libcircle.a(string.o)
+ .debug_frame   0x00001624      0x13c ../Raspberry Metal Lib/libcircle.a(interrupt.o)
+ .debug_frame   0x00001760       0xd4 ../Raspberry Metal Lib/libcircle.a(gpiomanager.o)
+ .debug_frame   0x00001834       0xa8 ../Raspberry Metal Lib/libcircle.a(virtualgpiopin.o)
+ .debug_frame   0x000018dc      0x130 ../Raspberry Metal Lib/libcircle.a(machineinfo.o)
+ .debug_frame   0x00001a0c       0xfc ../Raspberry Metal Lib/libcircle.a(ptrlist.o)
+ .debug_frame   0x00001b08       0xc4 ../Raspberry Metal Lib/libcircle.a(alloc.o)
+ .debug_frame   0x00001bcc       0x90 ../Raspberry Metal Lib/libcircle.a(bcmmailbox.o)
+ .debug_frame   0x00001c5c      0x168 ../Raspberry Metal Lib/libcircle.a(bcmframebuffer.o)
+ .debug_frame   0x00001dc4       0x78 ../Raspberry Metal Lib/libcircle.a(device.o)
+ .debug_frame   0x00001e3c       0x5c ../Raspberry Metal Lib/libcircle.a(libhelper.o)
+ .debug_frame   0x00001e98       0xc4 ../Raspberry Metal Lib/libcircle.a(exceptionhandler.o)

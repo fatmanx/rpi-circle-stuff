@@ -62,14 +62,14 @@ CBcmFrameBuffer::CBcmFrameBuffer (unsigned nWidth, unsigned nHeight, unsigned nD
 			m_nWidth  = Dimensions.nWidth;
 			m_nHeight = Dimensions.nHeight;
 
-			if (   m_nWidth  < 640
+			/*if (   m_nWidth  < 640
 			    || m_nWidth  > 1920
 			    || m_nHeight < 480
 			    || m_nHeight > 1080)
 			{
 				m_nWidth  = 640;
 				m_nHeight = 480;
-			}
+			}*/
 		}
 		else
 		{

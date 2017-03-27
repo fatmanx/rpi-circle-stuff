@@ -50,7 +50,7 @@
 	#define HALF_COLOR16			COLOR16 (0, 0, 31)
 
 	#define NORMAL_COLOR			1
-	#define HIGH_COLOR			2
+	#define NORMAL_COLORHIGH_COLOR			2
 	#define HALF_COLOR			3
 #elif DEPTH == 16
 	typedef u16 TScreenColor;
@@ -114,7 +114,7 @@ public:
 		    unsigned nCount);		// 0..3
 
 	void Clear(void);
-
+	TScreenColor  	*m_pBuffer;
 private:
 	void Write (char chChar);
 
@@ -152,7 +152,7 @@ private:
 	boolean		 m_bVirtual;
 	CBcmFrameBuffer	*m_pFrameBuffer;
 	CCharGenerator	 m_CharGen;
-	TScreenColor  	*m_pBuffer;
+	
 	unsigned	 m_nSize;
 	unsigned	 m_nPitch;
 	unsigned	 m_nWidth;

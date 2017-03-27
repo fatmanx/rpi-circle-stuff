@@ -27,8 +27,8 @@
 
 CKernel::CKernel(void)
 	: m_Memory(true),	// set this to TRUE to enable MMU and to boost performance
-	m_Screen(m_Options.GetWidth(), m_Options.GetHeight())
-	//m_Screen(320,200)
+	//m_Screen(m_Options.GetWidth(), m_Options.GetHeight())
+	m_Screen(320, 200)
 {
 }
 
@@ -36,8 +36,10 @@ CKernel::~CKernel(void)
 {
 }
 
+TScreenColor bbb[320 * 200*2];
 boolean CKernel::Initialize(void)
 {
+
 	return m_Screen.Initialize();
 }
 
@@ -78,6 +80,40 @@ float sine(float x) {
 
 TShutdownMode CKernel::Run(void)
 {
+
+	/*for (int i = 0; i < 600; i++) {
+		m_Screen.SetPixel(i, 100, NORMAL_COLOR);
+	}
+
+	double xx = 0;
+
+	while (1) {
+
+		xx+=0.01;
+		
+			
+		for (int i = 0; i < 320; i++) {
+			for (int j = 0; j < 200; j++) {
+				bbb[j * 320 + i] = (j+xx)%0xff;
+			}
+		}
+
+		bbb[10 * 320 + 10] = HIGH_COLOR;
+		bbb[10 * 320 + 11] = NORMAL_COLOR;
+		bbb[10 * 320 + 12] = HIGH_COLOR;
+		bbb[10 * 320 + 13] = NORMAL_COLOR;
+
+		memcpy( m_Screen.m_pBuffer, bbb, 320 * 200);
+	}*/
+
+
+
+
+
+
+
+	//return ShutdownHalt;
+
 	////// draw rectangle on screen
 	//for (unsigned nPosX = 0; nPosX < m_Screen.GetWidth(); nPosX++)
 	//{
@@ -111,11 +147,8 @@ TShutdownMode CKernel::Run(void)
 	//writeln(Message);
 	//Message.Format("2 %f %f %f %f %f", sqrt3(7), sqrt3(8), sqrt3(9), sqrt3(10), sqrt3(11));
 	//writeln(Message);
-	void *x;
-	void *z;
 
-	memcpy(x, z, 12);
-	
+
 
 	//Message.Format("pow %f %f %f %f %f", pow(2, 2), pow(2, 3), pow(2, 4), pow(2, 5), pow(2, 6));
 	//writeln(Message);
@@ -134,20 +167,20 @@ TShutdownMode CKernel::Run(void)
 	writeln(Message);
 
 
-	
+
 
 
 	for (int i = 0; i < 600; i++) {
 		m_Screen.SetPixel(i, 100, NORMAL_COLOR);
 	}
-	
+
 
 	double u = -PI;
 	double dd = 0;
 	while (1)
 	{
 		//m_Screen.Clear();
-		
+		memset(bbb, 0, 320 * 200*2);
 		while (u < PI_X2) {
 			u += 0.01f;
 
@@ -158,14 +191,23 @@ TShutdownMode CKernel::Run(void)
 		while (u < 2 * PI_X2) {
 			u += 0.01;
 
-			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * isine(u + dd - 0.01)), BLACK_COLOR);
-			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * icosine(u + 2*dd - 0.01)), BLACK_COLOR);
-			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * isine(u+dd)), HIGH_COLOR);
-			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * icosine(u+2*dd)), HALF_COLOR);
+			/*	m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * isine(u + dd - 0.01)), BLACK_COLOR);
+				m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * icosine(u + 2*dd - 0.01)), BLACK_COLOR);*/
+
+			
+
+			int x = 100 + u * 50;
+			int y = 100 + (int)(50 * isine(u + dd));
+			if (x > 0 && x < 320 && y>0 && y < 200) {
+				bbb[y * 320 + x] = HIGH_COLOR;
+			}
+
+			/*m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * isine(u + dd)), HIGH_COLOR);
+			m_Screen.SetPixel(100 + u * 50, 100 + (int)(50 * icosine(u + 2 * dd)), HALF_COLOR);*/
 		}
-		
+		memcpy(m_Screen.m_pBuffer, bbb, 320 * 200*2);
 		dd += 0.01;
-		
+
 	}
 
 

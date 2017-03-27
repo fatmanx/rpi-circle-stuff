@@ -70,14 +70,14 @@ CScreenDevice::~CScreenDevice(void)
 }
 
 void CScreenDevice::Clear(void) {
-	
-	for (unsigned i = 0; i < m_nWidth; i++) {
-		for (unsigned j = 0; j < m_nHeight; j++) {
-			m_pBuffer[m_nPitch * j + i] = BLACK_COLOR;
-		}
-	}
-	m_pBuffer[m_nPitch * 1 + 1] = HALF_COLOR;
-	m_pBuffer[m_nPitch * 1 + 2] = HALF_COLOR;
+
+	memset(m_pBuffer, 0, m_nSize);
+
+	//for (unsigned i = 0; i < m_nWidth; i++) {
+	//	for (unsigned j = 0; j < m_nHeight; j++) {
+	//		m_pBuffer[m_nPitch * j + i] = BLACK_COLOR;
+	//	}
+	//}
 
 	/*TScreenColor *buf = m_pBuffer;
 
